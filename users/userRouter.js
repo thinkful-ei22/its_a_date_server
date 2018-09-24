@@ -11,6 +11,7 @@ router.post('/', jsonParser, (req, res) => {
   const requiredFields = ['username', 'password'];
   const missingField = requiredFields.find(field => !(field in req.body));
 
+  //---------------Validators--------------------------------------------
   if (missingField) {
     return res.status(422).json({
       code: 422,
