@@ -1,8 +1,7 @@
 const { Strategy: LocalStrategy } = require('passport-local');
 const { JWT_SECRET } = require('../config');
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
-
-// const  User  = require('../users/models'); NEED TO UPDATE WITH OUR USER MODEL LOCATION
+const User  = require('../Models/userSchema');
 
 const localStrategy = new LocalStrategy((username, password, callback) => {
   let user;

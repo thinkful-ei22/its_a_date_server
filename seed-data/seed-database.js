@@ -4,13 +4,15 @@ const mongoose = require('mongoose');
 
 const { DATABASE_URL } = require('../config');
 
-const { User, Event } = require('../models/models.js');
+const User = require('../Models/userSchema');
+const MyEvent = require('../Models/eventSchema');
 
 const seedUsers = require('./seed-users.json');
 const seedEvents = require('./seed-events.json');
 
 console.log('Connecting to MongoDB');
-return mongoose.connect(DATABASE_URL)
+
+mongoose.connect(DATABASE_URL)
   .then( function(){
     console.info('DROPPING DATABASE');
     return mongoose.connection.db.dropDatabase();
@@ -18,11 +20,17 @@ return mongoose.connect(DATABASE_URL)
   .then( () => {
     return Promise.all([
       User.insertMany(seedUsers),
-      Event.insertMany(seedEvents)
+      User.createIndexes(),
+      MyEvent.insertMany(seedEvents),
+      MyEvent.createIndexes()
     ]);
   })
-  .then( ([res1, res2]) => {
-    console.info(res1, res2);
+  .then( (results) => {
+    console.info('results=',results);
     console.info('DISCONNECTING');
     mongoose.disconnect();
+  })
+  .catch(err => {
+    console.error(err);
+    return mongoose.disconnect();
   });
