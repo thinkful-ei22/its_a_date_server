@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  title: {type: String, required: true},
   date: Date,
   timeOptions: [{time: Date, votes: {type: Number, default: 0}}],
   restaurantOptions: [{zomatoId: String, votes: {type: Number, default: 0}}]
