@@ -2,7 +2,13 @@ const express = require('express');
 const Event = require('../Models/eventSchema');
 const router = express.Router();
 const passport = require('passport');
+const bodyParser = require('body-parser');
+
+const jsonParser = bodyParser.json();
+
 const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
+
+router.use(jsonParser);
 
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
@@ -26,3 +32,5 @@ router.post('/', jwtAuth, (req, res, next) => {
         .json(newEvent);
     });
 });
+
+module.exports = router;

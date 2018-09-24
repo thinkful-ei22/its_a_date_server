@@ -7,7 +7,8 @@ const eventSchema = new mongoose.Schema({
   timeOptions: [{time: Date, votes: {type: Number, default: 0}}],
   //change times so they associate with dates?
   /* 
-  scheduleOptions: [{date:
+  scheduleOptions: 
+  [{date:
     day: Date
     times: [{time: Date, votes: {type: Number, default: 0}}}]]
   */
