@@ -1,0 +1,61 @@
+[
+  {
+    "_id": "111111111111111111111111",
+    "userId": "000000000000000000000001",
+    "date": 1533302675000,
+    "timeOptions": [
+      {"time": 1533302675000, "votes": 0},
+      {"time": 1533302678600, "votes": 2},
+      {"time": 1533302682200, "votes": 0}
+    ],
+    "restaurantOptions": []
+  },
+
+  {
+    "_id": "111111111111111111111112",
+    "userId": "000000000000000000000001",
+    "date": "",
+    "timeOptions": [
+      {"time": 1537818166000, "votes": 0},
+      {"time": 1537818252000, "votes": 0},
+      {"time": 1537818339000, "votes": 0}
+    ],
+    "restaurantOptions": [
+      {"zomatoId": "16774318", "votes": 0},
+      {"zomatoId": "16615355", "votes": 1},
+      {"zomatoId": "16606986", "votes": 0},
+      {"zomatoId": "16610364", "votes": 0}
+    ]
+  },
+
+  {
+    "_id": "111111111111111111111113",
+    "userId": "000000000000000000000001",
+    "date": 1537817705000,
+    "timeOptions": [
+      {"time": 1537817708600, "votes": 0},
+      {"time": 1537817712200, "votes": 3},
+      {"time": 1537817715800, "votes": 2}
+    ],
+    "restaurantOptions": [
+      {"zomatoId": "16609833", "votes": 0},
+      {"zomatoId": "16614000", "votes": 1},
+      {"zomatoId": "16604511", "votes": 5},
+      {"zomatoId": "16602141", "votes": 3}
+    ]
+  },
+
+
+  {
+    "_id": "111111111111111111111114",
+    "userId": "000000000000000000000002",
+    "date": 1537817805000,
+    "timeOptions": [],
+    "restaurantOptions": [
+      {"zomatoId": "16608898", "votes": 0},
+      {"zomatoId": "16608315", "votes": 0},
+      {"zomatoId": "16609883", "votes": 0},
+      {"zomatoId": "16602273", "votes": 0}
+    ]
+  }
+]
