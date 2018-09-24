@@ -11,5 +11,5 @@ module.exports = {
         'mongodb://localhost/thinkful-backend-test',
   JWT_SECRET: process.env.JWT_SECRET || '12345',
   JWT_EXPIRY: process.env.JWT_EXPIRY || '7d'
-}
+};
    

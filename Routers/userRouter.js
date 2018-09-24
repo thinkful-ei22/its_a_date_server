@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const User = require('./models'); //UPDATE FOR OUR USER SCHEMA MODEL
+const User = require('../Models/userSchema');
 const router = express.Router();
 const passport = require('passport');
 const jsonParser = bodyParser.json();
@@ -110,7 +110,7 @@ router.post('/', jsonParser, (req, res) => {
       });
     })
     .then(user => {
-      return res.status(201).json(user.serialize());
+      return res.status(201).json(user);
     })
     .catch(err => {
       // Forward validation errors on to the client, otherwise give a 500
@@ -121,7 +121,5 @@ router.post('/', jsonParser, (req, res) => {
       res.status(500).json({ code: 500, message: 'Internal server error' });
     });
 });
-
-//ADD .SERIALIZE AND .HASHPASSWORD TO USER SCHEMA IF NOT THERE
 
 module.exports = { router };
