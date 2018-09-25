@@ -10,6 +10,38 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 
 router.use(jsonParser);
 
+//get all events belonging to user
+router.get('/', (req, res, next) => {
+  const userId = req.user.id;
+  let filter = {userId};
+  return Event.find(filter)
+    .then(results =>{
+      if(results){
+        res.json(results);
+      }else{
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+//get one event by id
+router.get('/:id', (req, res, next) => {
+  const id = req.params.id;
+  return Event.findById(id)
+    .then(result => {
+      if(result){
+        res.json(result);
+      }else{
+        next();
+      }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+//create new event
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
   const {title, description, scheduleOptions, restaurantOptions} = req.body;
@@ -39,6 +71,7 @@ router.post('/', jwtAuth, (req, res, next) => {
     });
 });
 
+//edit event
 router.put('/:id', (req, res, next) => {
   const {id} = req.params;
   const {title, description, scheduleOptions, restaurantOptions} = req.body;
