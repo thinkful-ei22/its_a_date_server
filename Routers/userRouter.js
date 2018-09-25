@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const User = require('../Models/userSchema');
@@ -101,12 +103,12 @@ router.post('/', jsonParser, (req, res) => {
       // If there is no existing user, hash the password
       return User.hashPassword(password);
     })
-    .then(hash => {
-      return new User({
+    .then( hash => {
+      return User.create({
         username,
         password: hash,
         firstName,
-        lastName,
+        lastName
       });
     })
     .then(user => {
@@ -119,6 +121,19 @@ router.post('/', jsonParser, (req, res) => {
         return res.status(err.code).json(err);
       }
       res.status(500).json({ code: 500, message: 'Internal server error' });
+    });
+});
+
+
+// ----------------GET to fetch user data--------------------------
+router.get('/', jwtAuth, (req, res, next) => {
+  const username = req.user.username;
+  return User.findOne({username}).populate('eventList')
+    .then(userData => {
+      return res.json(userData);
+    })
+    .catch(err => {
+      return next(err);
     });
 });
 
