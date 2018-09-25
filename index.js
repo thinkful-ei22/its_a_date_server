@@ -11,6 +11,7 @@ const { dbConnect } = require('./db-mongoose');
 const registrationRouter = require('./Routers/userRouter');
 const eventRouter = require('./Routers/eventRouter');
 const loginRouter = require('./Routers/authRouter');
+const restaurantRouter = require('./Routers/restaurantRouter');
 const app = express();
 
 app.use(
@@ -31,6 +32,7 @@ passport.use(jwtStrategy);
 app.use('/api/events', eventRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/users', registrationRouter);
+app.use('/api/restaurants', restaurantRouter);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
