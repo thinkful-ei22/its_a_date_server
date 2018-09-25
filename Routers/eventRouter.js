@@ -5,7 +5,7 @@ const passport = require('passport');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const jsonParser = bodyParser.json();
-
+const User = require('../Models/userSchema');
 const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: true });
 
 router.use(jsonParser);
@@ -107,6 +107,25 @@ router.put('/:id', jwtAuth, (req, res, next) => {
       else{
         next();
       }
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+//delete event
+router.delete('/:id', jwtAuth, (req, res, next) => {
+  const {id} = req.params;
+  const userId = req.user.id;
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    const err = new Error('The `id` is not valid');
+    err.status = 400;
+    return next(err);
+  }
+  const removeEvent = Event.findOneAndRemove({_id:id, userId});
+  const updateUser = User.update({event: id}, {$pull: {eventList: id}});
+  Promise.all([removeEvent,updateUser])
+    .then(() => {
+      res.sendStatus(204).end();
     })
     .catch(err => {
       next(err);
