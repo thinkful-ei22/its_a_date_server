@@ -125,10 +125,16 @@ router.post('/', jsonParser, (req, res) => {
 });
 
 
-
+// ----------------GET to fetch user data--------------------------
 router.get('/', jwtAuth, (req, res, next) => {
-  const username = req.user;
-  console.log(username);
+  const username = req.user.username;
+  return User.findOne({username})
+    .then(userData => {
+      return res.json(userData);
+    })
+    .catch(err => {
+      return next(err);
+    });
 });
 
 module.exports = router;
