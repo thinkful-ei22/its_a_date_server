@@ -3,17 +3,21 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: {type: String, required: true},
-  date: Date,
-  timeOptions: [{time: Date, votes: {type: Number, default: 0}}],
-  //change times so they associate with dates?
-  /* 
+  description: String,
   scheduleOptions: 
-  [{date:
-    day: Date
-    times: [{time: Date, votes: {type: Number, default: 0}}}]]
-  */
-
-  restaurantOptions: [{zomatoId: String, votes: {type: Number, default: 0}}]
+  [
+    {
+      option: {
+        date: {type: Date, required: true},
+        times:  [{time: Date, votes: {type: Number, default: 0}}]}
+    }
+  ],
+  restaurantOptions: [
+    {
+      zomatoId: String, 
+      votes: {type: Number, default: 0}
+    }
+  ]
 });
 
 eventSchema.set('toObject', {
