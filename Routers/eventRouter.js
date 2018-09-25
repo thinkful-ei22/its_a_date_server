@@ -12,15 +12,21 @@ router.use(jsonParser);
 
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
-  const {title, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions} = req.body;
   const newEvent = {
     userId,
     title,
+    description,
     scheduleOptions,
     restaurantOptions
   };
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
+    err.status = 400;
+    return next(err);
+  }
+  if(!scheduleOptions){
+    const err = new Error('Missing `scheduleOptions` in request body');
     err.status = 400;
     return next(err);
   }
