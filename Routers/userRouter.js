@@ -128,7 +128,7 @@ router.post('/', jsonParser, (req, res) => {
 // ----------------GET to fetch user data--------------------------
 router.get('/', jwtAuth, (req, res, next) => {
   const username = req.user.username;
-  return User.findOne({username})
+  return User.findOne({username}).populate('eventList')
     .then(userData => {
       return res.json(userData);
     })
