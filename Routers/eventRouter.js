@@ -70,7 +70,6 @@ router.post('/', jwtAuth, (req, res, next) => {
         .json(newEvent);
     });
 });
-
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
   const {id} = req.params;

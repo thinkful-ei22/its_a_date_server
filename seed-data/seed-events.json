@@ -3,12 +3,18 @@
     "_id": "111111111111111111111111",
     "userId": "000000000000000000000001",
     "title": "Italian Night",
-    "date": 1533302675000,
-    "timeOptions": [
-      {"time": 1533302675000, "votes": 0},
-      {"time": 1533302678600, "votes": 2},
-      {"time": 1533302682200, "votes": 0}
-    ],
+    "description": "Pizza for all!",
+    "scheduleOptions": [
+      {
+      "option": {
+        "date": 1533302675000,
+        "times":[
+          {"time": 1533302675000, "votes": 0},
+          {"time": 1533302678600, "votes": 2},
+          {"time": 1533302682200, "votes": 0}]
+      }     
+    }
+  ],
     "restaurantOptions": []
   },
 
@@ -16,11 +22,17 @@
     "_id": "111111111111111111111112",
     "userId": "000000000000000000000001",
     "title": "Taco Night",
-    "date": "",
-    "timeOptions": [
-      {"time": 1537818166000, "votes": 0},
-      {"time": 1537818252000, "votes": 0},
-      {"time": 1537818339000, "votes": 0}
+    "description": "I love tacos and so do you!",
+    "scheduleOptions": [
+      {
+        "option":{
+          "date": 1533302675001,
+          "times":[
+            {"time": 1537818166000, "votes": 0},
+            {"time": 1537818252000, "votes": 0},
+            {"time": 1537818339000, "votes": 0}]
+        }
+      }
     ],
     "restaurantOptions": [
       {"zomatoId": "16774318", "votes": 0},
@@ -34,11 +46,17 @@
     "_id": "111111111111111111111113",
     "userId": "000000000000000000000001",
     "title": "Bachelorette",
-    "date": 1537817705000,
-    "timeOptions": [
-      {"time": 1537817708600, "votes": 0},
-      {"time": 1537817712200, "votes": 3},
-      {"time": 1537817715800, "votes": 2}
+    "description": "Julie's tying the knot!",
+    "scheduleOptions": [
+      {
+        "option":{
+          "date": 1537817705000,
+          "times": [
+            {"time": 1537817708600, "votes": 0},
+            {"time": 1537817712200, "votes": 3},
+            {"time": 1537817715800, "votes": 2}]
+          }
+        }
     ],
     "restaurantOptions": [
       {"zomatoId": "16609833", "votes": 0},
@@ -53,8 +71,19 @@
     "_id": "111111111111111111111114",
     "userId": "000000000000000000000002",
     "title": "Bachelor Party",
-    "date": 1537817805000,
-    "timeOptions": [],
+    "description": "Mike's last night of freedom!",
+    "scheduleOptions": [
+      {
+        "option":{
+          "date": 1537817805000,
+          "times":[
+            {"time": 1537817708600, "votes": 0},
+            {"time": 1537817712200, "votes": 3},
+            {"time": 1537817715800, "votes": 2}
+          ]
+        }
+      }
+    ],
     "restaurantOptions": [
       {"zomatoId": "16608898", "votes": 0},
       {"zomatoId": "16608315", "votes": 0},
