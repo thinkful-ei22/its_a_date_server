@@ -12,9 +12,7 @@ router.use(jsonParser);
 
 //get all events belonging to user
 router.get('/', jwtAuth, (req, res, next) => {
-    console.log(req.user);
   const userId = req.user.id;
-  console.log(userId);
   let filter = {userId};
   return Event.find(filter)
     .then(results =>{
