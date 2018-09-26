@@ -63,11 +63,11 @@ router.post('/', jwtAuth, (req, res, next) => {
     return next(err);
   }
   Event.create(newEvent)
-    .then(() => {
+    .then( createdEvent => {
       res
-        .location(`${req.originalUrl}/${newEvent.id}`)
+        .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
-        .json(newEvent);
+        .json(createdEvent);
     });
 });
 //edit event
