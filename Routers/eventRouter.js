@@ -121,9 +121,7 @@ router.delete('/:id', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  const removeEvent = Event.findOneAndRemove({_id:id, userId});
-  const updateUser = User.update({event: id}, {$pull: {eventList: id}});
-  Promise.all([removeEvent,updateUser])
+  Event.findOneAndRemove({_id:id, userId})
     .then(() => {
       res.sendStatus(204).end();
     })
