@@ -6,6 +6,8 @@ const userSchema = new mongoose.Schema({
   username: {type: String, required: true, unique: true},
   password: {type: String, required: true},
   eventList: [{type: mongoose.Schema.Types.ObjectId, ref: 'Event'}],
+  firstName: String,
+  lastName: String,
   email: String
 });
 

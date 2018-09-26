@@ -13,8 +13,7 @@ router.use(jsonParser);
 //sample restaurant search using city with two cuisines: https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city&cuisines=italian%2C%20chinese
 
 //get cities from search
-router.get('/:city/:state', (req, res, next) => {
-  console.log('state=', req.params.state);
+router.get('/:city/:state', (req, res, next) => {   //change to use coordinates when we get the locator invovled
   return rp({
     uri: 'https://developers.zomato.com/api/v2.1/cities?',
     headers: {

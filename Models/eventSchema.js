@@ -4,6 +4,7 @@ const eventSchema = new mongoose.Schema({
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: {type: String, required: true},
   description: String,
+  location: String, //name of city, but maybe store codes or coordinates to use with apis
   scheduleOptions: 
   [
     {
