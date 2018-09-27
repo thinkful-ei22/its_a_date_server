@@ -68,7 +68,8 @@ router.post('/', jwtAuth, (req, res, next) => {
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
         .json(createdEvent);
-    });
+    })
+    .catch(err => next(err));
 });
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
