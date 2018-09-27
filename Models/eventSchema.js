@@ -5,12 +5,10 @@ const eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
   description: String,
   location: String, //name of city, but maybe store codes or coordinates to use with apis
-  scheduleOptions: 
-  [
+  scheduleOptions: [
     {
-      option: {
-        date: {type: Date, required: true},
-        times:  [{time: Date, votes: {type: Number, default: 0}}]}
+      date: Date, 
+      votes: {type: Number, default: 0}
     }
   ],
   restaurantOptions: [
