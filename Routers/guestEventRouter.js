@@ -6,13 +6,14 @@ const bodyParser = require('body-parser');
 //const mongoose = require('mongoose');
 const jsonParser = bodyParser.json();
 
-router.use(jsonParser);
+//router.use(jsonParser);
 
 router.get('/:id',  (req, res, next) => {
     const id = req.params.id;
     return Event.findById(id)
       .then(result => {
         if(result){
+            console.log('Heres the result:',result);
           res.json(result);
         }else{
           next();
