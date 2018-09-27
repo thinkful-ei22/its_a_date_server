@@ -4,12 +4,26 @@
     "userId": "000000000000000000000001",
     "title": "Italian Night",
     "description": "Pizza for all!",
+    "location": {"city": "Denver", "state": "CO"},
     "scheduleOptions": [ 
       {"date": "Mon, Sep 17, 2018 11:47 AM", "votes": 0},
       {"date": "Thu, Oct 18, 2018 6:47 PM", "votes": 0},
       {"date": "Tue, Oct 30, 2018 5:30 PM", "votes": 0}
     ],
-    "restaurantOptions": []
+    "restaurantOptions": [
+      {
+        "zomatoId": "16973602",
+        "website": "https://www.zomato.com/denver/root-down-the-highlands?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Root Down",
+        "votes": 0
+      },
+      {
+        "zomatoId": "16970329",
+        "website": "https://www.zomato.com/denver/my-brothers-bar-lodo?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "My Brother's Bar",
+        "votes": 0
+      }
+    ]
   },
 
   {
@@ -17,16 +31,31 @@
     "userId": "000000000000000000000001",
     "title": "Taco Night",
     "description": "I love tacos and so do you!",
+    "location": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
       {"date": "Tue, Oct 30, 2018 11:30 AM", "votes": 0},
       {"date": "Tue, Oct 30, 2018 3:30 PM", "votes": 0},
       {"date": "Tue, Oct 9, 2018 9:30 PM", "votes": 0}
     ],
     "restaurantOptions": [
-      {"zomatoId": "16774318", "votes": 0},
-      {"zomatoId": "16615355", "votes": 1},
-      {"zomatoId": "16606986", "votes": 0},
-      {"zomatoId": "16610364", "votes": 0}
+      {
+        "zomatoId": "17021064",
+        "website": "https://www.zomato.com/philadelphia/becks-cajun-cafe-washington-square-west?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Beck's Cajun Cafe",
+        "votes": 0
+      },
+      {
+        "zomatoId": "17009721",
+        "website": "https://www.zomato.com/philadelphia/bourbon-blue-roxborough-manayunk?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Bourbon Blue",
+        "votes": 0
+      },
+      {
+        "zomatoId": "17022246",
+        "website": "https://www.zomato.com/philadelphia/rex-1516-graduate-hospital?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Rex 1516",
+        "votes": 0
+      }
     ]
   },
 
@@ -35,16 +64,25 @@
     "userId": "000000000000000000000001",
     "title": "Bachelorette",
     "description": "Julie's tying the knot!",
+    "location":{"city":"Nashville", "state":"TN"},
     "scheduleOptions": [ 
       {"date": "Wed, Feb 13, 2019 9:30 PM", "votes": 0},
       {"date": "Thu, Feb 28, 2019 12:30 PM", "votes": 0},
       {"date": "Tue, Feb 12, 2019 4:42 PM", "votes": 0}
     ],
     "restaurantOptions": [
-      {"zomatoId": "16609833", "votes": 0},
-      {"zomatoId": "16614000", "votes": 1},
-      {"zomatoId": "16604511", "votes": 5},
-      {"zomatoId": "16602141", "votes": 3}
+      {
+        "zomatoId": "17195615",
+        "website": "https://www.zomato.com/nashville/red-bicycle-coffee-crêpes-nashville?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Red Bicycle Coffee & Crêpes",
+        "votes": 0
+      },
+      {
+        "zomatoId": "17194688",
+        "website": "https://www.zomato.com/nashville/mimis-cafe-murfreesboro?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Mimi's Cafe",
+        "votes": 0
+      }
     ]
   },
 
@@ -53,6 +91,7 @@
     "_id": "111111111111111111111114",
     "userId": "000000000000000000000002",
     "title": "Bachelor Party",
+    "location":{"city":"LasVegas","state":"NV"},
     "description": "Mike's last night of freedom!",
     "scheduleOptions": [ 
       {"date": "Thu, Feb 28, 2019 4:42 PM", "votes": 0},
@@ -60,10 +99,24 @@
       {"date": "Thu, Nov 29, 2018 8:42 AM", "votes": 0}
     ],
     "restaurantOptions": [
-      {"zomatoId": "16608898", "votes": 0},
-      {"zomatoId": "16608315", "votes": 0},
-      {"zomatoId": "16609883", "votes": 0},
-      {"zomatoId": "16602273", "votes": 0}
+      {
+        "zomatoId": "16980971",
+        "website": "https://www.zomato.com/las-vegas/yard-house-enterprise?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Yard House",
+        "votes": 0
+      },
+      {
+        "zomatoId": "16977581",
+        "website": "https://www.zomato.com/las-vegas/bjs-restaurant-brewhouse-summerlin?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "BJ's Restaurant & Brewhouse",
+        "votes": 0
+      },
+      {
+        "zomatoId": "16978398",
+        "website": "https://www.zomato.com/las-vegas/fiamma-trattoria-bar-the-strip?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
+        "name": "Fiamma Trattoria & Bar",
+        "votes": 0
+      }
     ]
   }
 ]
