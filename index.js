@@ -12,6 +12,7 @@ const registrationRouter = require('./Routers/userRouter');
 const eventRouter = require('./Routers/eventRouter');
 const loginRouter = require('./Routers/authRouter');
 const restaurantRouter = require('./Routers/restaurantRouter');
+const guestEventRouter = require('./Routers/guestEventRouter');
 const app = express();
 
 app.use(
@@ -30,6 +31,7 @@ app.use(express.json());
 passport.use(localStrategy);
 passport.use(jwtStrategy);
 app.use('/api/events', eventRouter);
+app.use('/api/guestevents', guestEventRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/users', registrationRouter);
 app.use('/api/restaurants', restaurantRouter);
