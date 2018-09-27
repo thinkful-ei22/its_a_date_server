@@ -4,7 +4,7 @@ const eventSchema = new mongoose.Schema({
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: {type: String, required: true},
   description: String,
-  location: String, //name of city, but maybe store codes or coordinates to use with apis
+  location: {city:String, state:String}, //name of city, but maybe store codes or coordinates to use with apis
   scheduleOptions: [
     {
       date: String, 
@@ -13,7 +13,9 @@ const eventSchema = new mongoose.Schema({
   ],
   restaurantOptions: [
     {
-      zomatoId: String, 
+      name: String, 
+      url: String,
+      zomatoId: String,
       votes: {type: Number, default: 0}
     }
   ]
@@ -24,8 +26,8 @@ eventSchema.set('toObject', {
   versionKey: false,
   transform: (doc, ret) => {
     ret.scheduleOptions.forEach(time => {
-      time.id = time._id
-    })
+      time.id = time._id;
+    });
     ret.id = ret._id;
     delete ret._id;
   }
