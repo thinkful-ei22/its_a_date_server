@@ -14,6 +14,7 @@ router.use(jsonParser);
 
 //get cities from search
 router.get('/:city/:state', (req, res, next) => {   //change to use coordinates when we get the locator invovled
+  console.log('backend city',req.params.city);
   return rp({
     uri: 'https://developers.zomato.com/api/v2.1/cities?',
     headers: {
@@ -27,12 +28,14 @@ router.get('/:city/:state', (req, res, next) => {   //change to use coordinates 
     json: true // Automatically parses the JSON string in the response
   })
     .then(data => {
+      console.log('backend city',req.params.city);
       const list = data.location_suggestions;
       const correctCity = list.filter(item => item.state_code === req.params.state.toUpperCase());
-      console.log(correctCity);
-      res.json(correctCity);
+      console.log(correctCity[0]);
+      res.json(correctCity[0]);
     })
     .catch(err => {
+      console.log('backend city',req.params.city);
       next(err);
       // API call failed...
     });
