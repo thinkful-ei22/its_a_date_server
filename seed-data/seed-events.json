@@ -5,9 +5,9 @@
     "title": "Italian Night",
     "description": "Pizza for all!",
     "scheduleOptions": [ 
-      {"date": 1533302675001, "votes": 0},
-      {"date": 1537818166000, "votes": 0},
-      {"date": 1537818252000, "votes": 0}
+      {"date": "Mon, Sep 17, 2018 11:47 AM", "votes": 0},
+      {"date": "Thu, Oct 18, 2018 6:47 PM", "votes": 0},
+      {"date": "Tue, Oct 30, 2018 5:30 PM", "votes": 0}
     ],
     "restaurantOptions": []
   },
@@ -18,9 +18,9 @@
     "title": "Taco Night",
     "description": "I love tacos and so do you!",
     "scheduleOptions": [ 
-      {"date": 1533302675001, "votes": 0},
-      {"date": 1537818166000, "votes": 0},
-      {"date": 1537818252000, "votes": 0}
+      {"date": "Tue, Oct 30, 2018 11:30 AM", "votes": 0},
+      {"date": "Tue, Oct 30, 2018 3:30 PM", "votes": 0},
+      {"date": "Tue, Oct 9, 2018 9:30 PM", "votes": 0}
     ],
     "restaurantOptions": [
       {"zomatoId": "16774318", "votes": 0},
@@ -36,9 +36,9 @@
     "title": "Bachelorette",
     "description": "Julie's tying the knot!",
     "scheduleOptions": [ 
-      {"date": 1533302675001, "votes": 0},
-      {"date": 1537818166000, "votes": 0},
-      {"date": 1537818252000, "votes": 0}
+      {"date": "Wed, Feb 13, 2019 9:30 PM", "votes": 0},
+      {"date": "Thu, Feb 28, 2019 12:30 PM", "votes": 0},
+      {"date": "Tue, Feb 12, 2019 4:42 PM", "votes": 0}
     ],
     "restaurantOptions": [
       {"zomatoId": "16609833", "votes": 0},
@@ -55,9 +55,9 @@
     "title": "Bachelor Party",
     "description": "Mike's last night of freedom!",
     "scheduleOptions": [ 
-      {"date": 1533302675001, "votes": 0},
-      {"date": 1537818166000, "votes": 0},
-      {"date": 1537818252000, "votes": 0}
+      {"date": "Thu, Feb 28, 2019 4:42 PM", "votes": 0},
+      {"date": "Wed, Nov 14, 2018 7:42 PM", "votes": 0},
+      {"date": "Thu, Nov 29, 2018 8:42 AM", "votes": 0}
     ],
     "restaurantOptions": [
       {"zomatoId": "16608898", "votes": 0},
