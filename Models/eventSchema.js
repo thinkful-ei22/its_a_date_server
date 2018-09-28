@@ -19,6 +19,14 @@ const eventSchema = new mongoose.Schema({
       name: String,
       votes: {type: Number, default: 0}
     }
+  ],
+  eventOptions: [
+    {
+      ebId: String,
+      link: String,
+      title: String,
+      votes: {type: Number, default: 0}
+    }
   ]
 });
 
