@@ -24,7 +24,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const stringFields = ['username', 'password', 'firstName', 'lastName'];
+  const stringFields = ['username', 'password', 'firstName', 'lastName', 'email'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -85,9 +85,10 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let { username, password, firstName = '', lastName = '' } = req.body;
+  let { username, password, firstName = '', lastName = '', email = '' } = req.body;
   firstName = firstName.trim();
   lastName = lastName.trim();
+  email = email.trim();
 
   User.find({ username })
     .count()
@@ -109,7 +110,8 @@ router.post('/', jsonParser, (req, res) => {
         username,
         password: hash,
         firstName,
-        lastName
+        lastName,
+        email
       });
     })
     .then(user => {
