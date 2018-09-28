@@ -11,31 +11,25 @@ router.use(jsonParser);
 
 
 //sample restaurant search using city with two cuisines: https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city&cuisines=italian%2C%20chinese
-
+//https://developers.zomato.com/api/v2.1/cities?lat=40.0000&lon=30.000
 //get cities from search
-router.get('/:city/:state', (req, res, next) => {   //change to use coordinates when we get the locator invovled
-  console.log('backend city',req.params.city);
+router.get('/:lat/:lon', (req, res, next) => {   //change to use coordinates when we get the locator invovled
   return rp({
-    uri: 'https://developers.zomato.com/api/v2.1/cities?',
+    uri: `https://developers.zomato.com/api/v2.1/cities?lat=${req.params.lat}&lon=${req.params.lon}`,
     headers: {
       'User-Agent': 'Request-Promise',
       'Accept':'application/json',
       'user-key':'02fb4b75d2055eb17f988da8447de24a',
     },
-    qs:{
-      q: req.params.city
-    },
     json: true // Automatically parses the JSON string in the response
   })
     .then(data => {
-      console.log('backend city',req.params.city);
-      const list = data.location_suggestions;
-      const correctCity = list.filter(item => item.state_code === req.params.state.toUpperCase());
-      console.log(correctCity[0]);
-      res.json(correctCity[0]);
+      console.log('backend coordinates',req.params.lat, req.params.lon);
+      console.log('data', data);
+      const correctCity = data.location_suggestions[0];
+      res.json(correctCity);
     })
     .catch(err => {
-      console.log('backend city',req.params.city);
       next(err);
       // API call failed...
     });
