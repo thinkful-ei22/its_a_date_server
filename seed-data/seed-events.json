@@ -4,6 +4,7 @@
     "userId": "000000000000000000000001",
     "title": "Italian Night",
     "description": "Pizza for all!",
+    "draft":"false",
     "location": {"city": "Denver", "state": "CO"},
     "scheduleOptions": [ 
       {"date": "Mon, Sep 17, 2018 11:47 AM", "votes": 0},
@@ -30,6 +31,7 @@
     "_id": "111111111111111111111112",
     "userId": "000000000000000000000001",
     "title": "Taco Night",
+    "draft": "true",
     "description": "I love tacos and so do you!",
     "location": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
@@ -63,6 +65,7 @@
     "_id": "111111111111111111111113",
     "userId": "000000000000000000000001",
     "title": "Bachelorette",
+    "draft":"false",
     "description": "Julie's tying the knot!",
     "location":{"city":"Nashville", "state":"TN"},
     "scheduleOptions": [ 
@@ -91,6 +94,7 @@
     "_id": "111111111111111111111114",
     "userId": "000000000000000000000002",
     "title": "Bachelor Party",
+    "draft":"false",
     "location":{"city":"LasVegas","state":"NV"},
     "description": "Mike's last night of freedom!",
     "scheduleOptions": [ 
