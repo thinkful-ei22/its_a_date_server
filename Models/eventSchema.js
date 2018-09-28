@@ -5,7 +5,7 @@ const eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
   draft: Boolean,
   description: String,
-  location: {city:String, state:String}, //name of city, but maybe store codes or coordinates to use with apis
+  location: {latitude: Number, longitude: Number},
   scheduleOptions: [
     {
       date: String, 
