@@ -44,20 +44,21 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, draft} = req.body;
   const newEvent = {
     userId,
     title,
     description,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    draft
   };
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
     return next(err);
   }
-  if(!newEvent.scheduleOptions){
+  if(newEvent.scheduleOptions.length === 0){
     const err = new Error('Missing `scheduleOptions` in request body');
     err.status = 400;
     return next(err);
