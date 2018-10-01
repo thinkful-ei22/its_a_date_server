@@ -44,13 +44,14 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
   const newEvent = {
     userId,
     title,
     description,
     scheduleOptions,
     restaurantOptions,
+    activityOptions,
     draft
   };
   if(!newEvent.title){
@@ -75,14 +76,16 @@ router.post('/', jwtAuth, (req, res, next) => {
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
     title,
     description,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    activityOptions,
+    draft
   };
   //validate id
   if(!mongoose.Types.ObjectId.isValid(id)){
