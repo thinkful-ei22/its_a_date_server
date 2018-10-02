@@ -43,8 +43,9 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 });
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
+ 
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, draft, city, state} = req.body;
   const newEvent = {
     userId,
     title,
@@ -79,7 +80,7 @@ router.post('/', jwtAuth, (req, res, next) => {
 });
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
-  console.log('BODY +++++',req.body);
+  
   const {id} = req.params;
   const {title, description, scheduleOptions, city,
     state, restaurantOptions, draft} = req.body;
