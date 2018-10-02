@@ -44,14 +44,19 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, draft} = req.body;
   const newEvent = {
     userId,
     title,
+    city, 
+    state,
     description,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    draft
   };
+
+  console.log('New event', newEvent);
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
@@ -64,6 +69,7 @@ router.post('/', jwtAuth, (req, res, next) => {
   }
   Event.create(newEvent)
     .then( createdEvent => {
+      console.log('CREATED EVENT',createdEvent);
       res
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
@@ -73,15 +79,20 @@ router.post('/', jwtAuth, (req, res, next) => {
 });
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
+  console.log('BODY +++++',req.body);
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, city,
+    state, restaurantOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
     title,
     description,
+    city,
+    state,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    draft
   };
   //validate id
   if(!mongoose.Types.ObjectId.isValid(id)){
