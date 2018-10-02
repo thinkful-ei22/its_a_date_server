@@ -28,11 +28,9 @@ router.post('/', jwtAuth, (req, res, next) => {
   sgMail.send(msg)
     .then(result => {
       if(result){
-        console.log(res.json(result));
         res.json(result)
           .status(200);
       }else{
-        console.log('no result to display');
         next();
       }
     })
