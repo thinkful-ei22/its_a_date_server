@@ -8,6 +8,7 @@
     "city": "Denver",
     "state": "Colorado",
     "location": {"latitude": 39.7392, "longitude": -104.9903},
+    "locationCity": {"city": "Denver", "state": "CO"},
     "scheduleOptions": [ 
       {"date": "Mon, Sep 17, 2018 11:47 AM", "votes": 0},
       {"date": "Thu, Oct 18, 2018 6:47 PM", "votes": 0},
@@ -52,6 +53,7 @@
     "city": "Philadelpia",
     "state": "Pennsylvania",
     "location": {"latitude": 39.9526, "longitude": -75.1652},
+    "locationCity": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
       {"date": "Tue, Oct 30, 2018 11:30 AM", "votes": 0},
       {"date": "Tue, Oct 30, 2018 3:30 PM", "votes": 0},
@@ -102,6 +104,7 @@
     "city": "Nashville",
     "state": "Tennessee",
     "location":{"latitude":36.1627, "longitude":-86.7816},
+    "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 
       {"date": "Wed, Feb 13, 2019 9:30 PM", "votes": 0},
       {"date": "Thu, Feb 28, 2019 12:30 PM", "votes": 0},
@@ -146,6 +149,7 @@
     "city": "Las Vegas",
     "state": "Nevada",
     "location":{"latitude":36.1699,"longitude":-115.1398},
+    "locationCity": {"city": "Las Vegas", "state": "NV"},
     "description": "Mike's last night of freedom!",
     "scheduleOptions": [ 
       {"date": "Thu, Feb 28, 2019 4:42 PM", "votes": 0},
