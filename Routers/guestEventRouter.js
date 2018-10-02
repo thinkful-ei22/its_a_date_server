@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const Event = require('../Models/eventSchema');
 const router = express.Router();
@@ -40,12 +42,12 @@ router.put('/:id',  (req, res, next) => {
         }
       });
       newRestaurantOptions.forEach( (restaurantObject, index) => {
-        if (restaurantObject.zomatoId in restaurantIds) {
+        if (restaurantIds.includes(restaurantObject.zomatoId)) {
           newRestaurantOptions[index].votes = newRestaurantOptions[index].votes + 1;
         }
       });
       newActivityOptions.forEach((activityObject, index) => {
-        if(activityObject.ebId in activityIds){
+        if(activityIds.includes(activityObject.ebId)){
           newActivityOptions[index].votes = newActivityOptions[index].votes +1;
         }}
       );
