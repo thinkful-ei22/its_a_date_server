@@ -45,7 +45,7 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 router.post('/', jwtAuth, (req, res, next) => {
  
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions, draft, city, state} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
   const newEvent = {
     userId,
     title,
@@ -54,6 +54,7 @@ router.post('/', jwtAuth, (req, res, next) => {
     description,
     scheduleOptions,
     restaurantOptions,
+    activityOptions,
     draft
   };
 
@@ -63,7 +64,7 @@ router.post('/', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if(!newEvent.scheduleOptions){
+  if(newEvent.scheduleOptions.length === 0){
     const err = new Error('Missing `scheduleOptions` in request body');
     err.status = 400;
     return next(err);
@@ -82,8 +83,7 @@ router.post('/', jwtAuth, (req, res, next) => {
 router.put('/:id', jwtAuth, (req, res, next) => {
   
   const {id} = req.params;
-  const {title, description, scheduleOptions, city,
-    state, restaurantOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
@@ -93,6 +93,7 @@ router.put('/:id', jwtAuth, (req, res, next) => {
     state,
     scheduleOptions,
     restaurantOptions,
+    activityOptions,
     draft
   };
   //validate id

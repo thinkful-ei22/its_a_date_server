@@ -22,7 +22,7 @@ const eventSchema = new mongoose.Schema({
       votes: {type: Number, default: 0}
     }
   ],
-  eventOptions: [
+  activityOptions: [
     {
       ebId: String,
       link: String,
