@@ -6,6 +6,7 @@ const eventSchema = new mongoose.Schema({
   draft: Boolean,
   description: String,
   location: {latitude: Number, longitude: Number},
+  locationCity: {city: String, state: String},
   scheduleOptions: [
     {
       date: String, 
@@ -36,6 +37,7 @@ eventSchema.set('toObject', {
   transform: (doc, ret) => {
     ret.scheduleOptions.forEach(time => {
       time.id = time._id;
+      delete ret._id;
     });
     ret.id = ret._id;
     delete ret._id;

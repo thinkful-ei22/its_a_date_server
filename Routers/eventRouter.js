@@ -26,6 +26,9 @@ router.get('/', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //get one event by id
 router.get('/:id', jwtAuth, (req, res, next) => {
   const id = req.params.id;
@@ -41,18 +44,23 @@ router.get('/:id', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft, location, locationCity} = req.body;
   const newEvent = {
     userId,
     title,
+    draft,
     description,
+    location,
+    locationCity,
     scheduleOptions,
     restaurantOptions,
-    activityOptions,
-    draft
+    activityOptions
   };
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
@@ -73,6 +81,9 @@ router.post('/', jwtAuth, (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+
+
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
   const {id} = req.params;
@@ -117,6 +128,9 @@ router.put('/:id', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //delete event
 router.delete('/:id', jwtAuth, (req, res, next) => {
   const {id} = req.params;
