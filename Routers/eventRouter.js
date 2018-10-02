@@ -45,7 +45,8 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 router.post('/', jwtAuth, (req, res, next) => {
  
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, 
+    activityOptions, draft, city, state} = req.body;
   const newEvent = {
     userId,
     title,
@@ -83,7 +84,8 @@ router.post('/', jwtAuth, (req, res, next) => {
 router.put('/:id', jwtAuth, (req, res, next) => {
   
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, city,
+   state, activityOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
