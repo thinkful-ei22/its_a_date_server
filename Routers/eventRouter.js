@@ -26,6 +26,9 @@ router.get('/', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //get one event by id
 router.get('/:id', jwtAuth, (req, res, next) => {
   const id = req.params.id;
@@ -41,29 +44,40 @@ router.get('/:id', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
+ 
   const userId = req.user.id; 
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft, location, locationCity} = req.body;
   const newEvent = {
     userId,
     title,
+    draft,
     description,
+    location,
+    locationCity,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    activityOptions
   };
+
+  console.log('New event', newEvent);
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
     return next(err);
   }
-  if(!newEvent.scheduleOptions){
+  if(newEvent.scheduleOptions.length === 0){
     const err = new Error('Missing `scheduleOptions` in request body');
     err.status = 400;
     return next(err);
   }
   Event.create(newEvent)
     .then( createdEvent => {
+      console.log('CREATED EVENT',createdEvent);
       res
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
@@ -71,17 +85,25 @@ router.post('/', jwtAuth, (req, res, next) => {
     })
     .catch(err => next(err));
 });
+
+
+
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
+  
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, 
+   locationCity, activityOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
     title,
     description,
+    locationCity,
     scheduleOptions,
-    restaurantOptions
+    restaurantOptions,
+    activityOptions,
+    draft
   };
   //validate id
   if(!mongoose.Types.ObjectId.isValid(id)){
@@ -113,6 +135,9 @@ router.put('/:id', jwtAuth, (req, res, next) => {
       next(err);
     });
 });
+
+
+
 //delete event
 router.delete('/:id', jwtAuth, (req, res, next) => {
   const {id} = req.params;

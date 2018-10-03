@@ -13,6 +13,7 @@ const eventRouter = require('./Routers/eventRouter');
 const loginRouter = require('./Routers/authRouter');
 const restaurantRouter = require('./Routers/restaurantRouter');
 const guestEventRouter = require('./Routers/guestEventRouter');
+const emailRouter = require('./Routers/email');
 const app = express();
 
 app.use(
@@ -35,6 +36,7 @@ app.use('/api/guestevents', guestEventRouter);
 app.use('/api/login', loginRouter);
 app.use('/api/users', registrationRouter);
 app.use('/api/restaurants', restaurantRouter);
+app.use('/api/send', emailRouter);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
@@ -70,4 +72,4 @@ if (require.main === module) {
   runServer();
 }
 
-module.exports =app;
+module.exports = app;

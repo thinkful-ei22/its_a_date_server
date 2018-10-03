@@ -58,3 +58,4 @@ typings/
 .env
 
 .eslintrc.json
+sendgrid.env
