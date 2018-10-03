@@ -5,8 +5,6 @@
     "title": "Italian Night",
     "description": "Pizza for all!",
     "draft":"false",
-    "city": "Denver",
-    "state": "Colorado",
     "location": {"latitude": 39.7392, "longitude": -104.9903},
     "locationCity": {"city": "Denver", "state": "CO"},
     "scheduleOptions": [ 
@@ -50,8 +48,6 @@
     "title": "Taco Night",
     "draft": "true",
     "description": "I love tacos and so do you!",
-    "city": "Philadelpia",
-    "state": "Pennsylvania",
     "location": {"latitude": 39.9526, "longitude": -75.1652},
     "locationCity": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
@@ -101,8 +97,7 @@
     "title": "Bachelorette",
     "draft":"false",
     "description": "Julie's tying the knot!",
-    "city": "Nashville",
-    "state": "Tennessee",
+   
     "location":{"latitude":36.1627, "longitude":-86.7816},
     "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 
@@ -146,8 +141,6 @@
     "userId": "000000000000000000000002",
     "title": "Bachelor Party",
     "draft":"false",
-    "city": "Las Vegas",
-    "state": "Nevada",
     "location":{"latitude":36.1699,"longitude":-115.1398},
     "locationCity": {"city": "Las Vegas", "state": "NV"},
     "description": "Mike's last night of freedom!",
@@ -156,6 +149,7 @@
       {"date": "Wed, Nov 14, 2018 7:42 PM", "votes": 0},
       {"date": "Thu, Nov 29, 2018 8:42 AM", "votes": 0}
     ],
+    
     "restaurantOptions": [
       {
         "zomatoId": "16980971",
