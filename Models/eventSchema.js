@@ -3,8 +3,10 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
   userId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   title: {type: String, required: true},
+  draft: Boolean,
   description: String,
-  location: {city:String, state:String}, //name of city, but maybe store codes or coordinates to use with apis
+  location: {latitude: Number, longitude: Number},
+  locationCity: {city: String, state: String},
   scheduleOptions: [
     {
       date: String, 
@@ -18,6 +20,14 @@ const eventSchema = new mongoose.Schema({
       name: String,
       votes: {type: Number, default: 0}
     }
+  ],
+  activityOptions: [
+    {
+      ebId: String,
+      link: String,
+      title: String,
+      votes: {type: Number, default: 0}
+    }
   ]
 });
 
@@ -27,6 +37,7 @@ eventSchema.set('toObject', {
   transform: (doc, ret) => {
     ret.scheduleOptions.forEach(time => {
       time.id = time._id;
+      delete time._id;
     });
     ret.id = ret._id;
     delete ret._id;
