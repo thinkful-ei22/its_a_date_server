@@ -10,5 +10,6 @@ module.exports = {
         process.env.TEST_DATABASE_URL ||
         'mongodb://localhost/thinkful-backend-test',
   JWT_SECRET: process.env.JWT_SECRET || '12345',
-  JWT_EXPIRY: process.env.JWT_EXPIRY || '7d'
+  JWT_EXPIRY: process.env.JWT_EXPIRY || '7d',
+  SENDGRID_API_KEY: process.env.SENDGRID_API_KEY || ''
 };
