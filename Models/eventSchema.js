@@ -27,6 +27,8 @@ const eventSchema = new mongoose.Schema({
       link: String,
       title: String,
       description: String,
+      start: String,
+      end: String,
       votes: {type: Number, default: 0}
     }
   ]
