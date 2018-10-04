@@ -8,7 +8,7 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 router.post('/', jwtAuth, (req, res, next) => {
   const {to, from, subject, text, html} = req.body;
   const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey(SENDGRID_API_KEY);
+  sgMail.setApiKey(SENDGRID_API_KEY.SENDGRID_API_KEY);
   const msg = {
     to,
     from,
