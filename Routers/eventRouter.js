@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const Event = require('../Models/eventSchema');
 const router = express.Router();
@@ -14,9 +15,24 @@ router.use(jsonParser);
 router.get('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id;
   let filter = {userId};
+
   return Event.find(filter)
     .then(results =>{
       if(results){
+        
+        results.map(event => {
+          let {scheduleOptions, restaurantOptions, activityOptions} = event;
+          const sortFn = (a,b)=> b.votes - a.votes;
+          if(scheduleOptions.length > 1){
+            scheduleOptions = scheduleOptions.sort(sortFn);
+          }
+          if(restaurantOptions.length > 1){
+            restaurantOptions = restaurantOptions.sort(sortFn);
+          }
+          if(activityOptions.length > 1){
+            activityOptions = activityOptions.sort(sortFn);
+          }
+        });
         res.json(results);
       }else{
         next();
