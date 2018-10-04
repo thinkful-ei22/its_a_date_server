@@ -43,6 +43,7 @@
   },
 
   {
+    
     "_id": "111111111111111111111112",
     "userId": "000000000000000000000001",
     "title": "Taco Night",
@@ -99,6 +100,7 @@
     "title": "Bachelorette",
     "draft":"false",
     "description": "Julie's tying the knot!",
+   
     "location":{"latitude":36.1627, "longitude":-86.7816},
     "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 

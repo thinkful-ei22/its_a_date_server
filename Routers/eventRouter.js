@@ -49,6 +49,7 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
+ 
   const userId = req.user.id; 
   const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft, location, locationCity} = req.body;
   const newEvent = {
@@ -62,6 +63,8 @@ router.post('/', jwtAuth, (req, res, next) => {
     restaurantOptions,
     activityOptions
   };
+
+  console.log('New event', newEvent);
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
@@ -74,6 +77,7 @@ router.post('/', jwtAuth, (req, res, next) => {
   }
   Event.create(newEvent)
     .then( createdEvent => {
+      console.log('CREATED EVENT',createdEvent);
       res
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
@@ -86,13 +90,16 @@ router.post('/', jwtAuth, (req, res, next) => {
 
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
+  
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
+  const {title, description, scheduleOptions, restaurantOptions, 
+   locationCity, activityOptions, draft} = req.body;
   const userId = req.user.id;
   const updatedEvent = {
     userId,
     title,
     description,
+    locationCity,
     scheduleOptions,
     restaurantOptions,
     activityOptions,
