@@ -67,11 +67,7 @@ router.post('/', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  // if(newEvent.scheduleOptions.length === 0){
-  //   const err = new Error('Missing `scheduleOptions` in request body');
-  //   err.status = 400;
-  //   return next(err);
-  // }
+
   Event.create(newEvent)
     .then( createdEvent => {
       res
@@ -111,11 +107,7 @@ router.put('/:id', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if(!updatedEvent.scheduleOptions){
-    const err = new Error('Missing `scheduleOptions` in request body');
-    err.status = 400;
-    return next(err);
-  }
+
   Event.findOneAndUpdate({_id:id, userId}, updatedEvent, {new: true})
     .then(result => {
       if(result){
