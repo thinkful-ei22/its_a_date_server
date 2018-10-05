@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const Event = require('../Models/eventSchema');
 const router = express.Router();
@@ -14,9 +15,24 @@ router.use(jsonParser);
 router.get('/', jwtAuth, (req, res, next) => {
   const userId = req.user.id;
   let filter = {userId};
+
   return Event.find(filter)
     .then(results =>{
       if(results){
+        
+        results.map(event => {
+          let {scheduleOptions, restaurantOptions, activityOptions} = event;
+          const sortFn = (a,b)=> b.votes - a.votes;
+          if(scheduleOptions.length > 1){
+            scheduleOptions = scheduleOptions.sort(sortFn);
+          }
+          if(restaurantOptions.length > 1){
+            restaurantOptions = restaurantOptions.sort(sortFn);
+          }
+          if(activityOptions.length > 1){
+            activityOptions = activityOptions.sort(sortFn);
+          }
+        });
         res.json(results);
       }else{
         next();
@@ -49,6 +65,7 @@ router.get('/:id', jwtAuth, (req, res, next) => {
 
 //create new event
 router.post('/', jwtAuth, (req, res, next) => {
+ 
   const userId = req.user.id; 
   const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft, location, locationCity} = req.body;
   const newEvent = {
@@ -62,18 +79,17 @@ router.post('/', jwtAuth, (req, res, next) => {
     restaurantOptions,
     activityOptions
   };
+
+  console.log('New event', newEvent);
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
     return next(err);
   }
-  if(newEvent.scheduleOptions.length === 0){
-    const err = new Error('Missing `scheduleOptions` in request body');
-    err.status = 400;
-    return next(err);
-  }
+
   Event.create(newEvent)
     .then( createdEvent => {
+      console.log('CREATED EVENT',createdEvent);
       res
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
@@ -86,13 +102,18 @@ router.post('/', jwtAuth, (req, res, next) => {
 
 //edit event
 router.put('/:id', jwtAuth, (req, res, next) => {
+  
   const {id} = req.params;
-  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft} = req.body;
+
+  const {title, description, scheduleOptions, restaurantOptions, activityOptions, draft, location, locationCity} = req.body;
+
   const userId = req.user.id;
   const updatedEvent = {
     userId,
     title,
     description,
+    location,
+    locationCity,
     scheduleOptions,
     restaurantOptions,
     activityOptions,
@@ -109,11 +130,7 @@ router.put('/:id', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
-  if(!updatedEvent.scheduleOptions){
-    const err = new Error('Missing `scheduleOptions` in request body');
-    err.status = 400;
-    return next(err);
-  }
+
   Event.findOneAndUpdate({_id:id, userId}, updatedEvent, {new: true})
     .then(result => {
       if(result){

@@ -31,18 +31,25 @@
         "ebId": "41090701394",
         "link": "https://www.eventbrite.com/e/kids-crossfit-ages-4-to-17-tickets-41090701394?aff=ebapi",
         "title": "Kids CrossFit - Ages 4 to 17!",
+        "description":"get swole!",
+        "start": "",
+        "end": "",
         "votes": 0
       },
       {
         "ebId":"49111123693",
         "link":"https://www.eventbrite.com/e/open-mat-jiu-jitsu-all-levels-tickets-49111123693?aff=ebapi",
         "title":"Open Mat Jiu Jitsu - ALL Levels",
+        "description": "Hi - ya!",
+        "start": "",
+        "end": "",
         "votes":0
       }
     ]
   },
 
   {
+    
     "_id": "111111111111111111111112",
     "userId": "000000000000000000000001",
     "title": "Taco Night",
@@ -80,12 +87,16 @@
         "ebId":"47873653386",
         "link":"https://www.eventbrite.com/e/bomb-time-tuesdays-tickets-47873653386?aff=ebapi",
         "title":"Bomb Time Tuesdays",
+        "description": "@tizz_215 and @lifestyleambassadors215 hosts their newest weekly rendition 'Bomb Time Tuesdays' late happy hour and after party.",
         "votes":0
       },
       {
         "ebId":"42019807375",
         "link":"https://www.eventbrite.com/e/wavy-wednesday-dance-fitness-tickets-42019807375?aff=ebapi",
         "title":"Wavy Wednesday: Dance Fitness",
+        "description":"Join us every Wednesday at 6:30 PM for a dance fitness workout, in West Philly. We're a group of men and women who like new friends and new results. Bring a water bottle and a friend. Bonus: We're kid friendly. Only $5 per class which includes pre-workout beverage and post workout smoothie.",
+        "start": "",
+        "end": "",
         "votes":0
       }
     ]
@@ -97,6 +108,7 @@
     "title": "Bachelorette",
     "draft":"false",
     "description": "Julie's tying the knot!",
+   
     "location":{"latitude":36.1627, "longitude":-86.7816},
     "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 
@@ -123,12 +135,18 @@
         "ebId":"47133836574",
         "link":"https://www.eventbrite.com/e/big-montis-blues-jam-tickets-47133836574?aff=ebapi",
         "title":"Big Monti's Blues Jam",
+        "description": "Fun times",
+        "start": "",
+        "end": "",
         "votes":0
       },
       {
         "ebId":"46583107328",
         "link":"https://www.eventbrite.com/e/drink-n-draw-tickets-46583107328?aff=ebapi",
         "title":"Drink-n-Draw",
+        "description": "Fun times",
+        "start": "",
+        "end": "",
         "votes":0
       }
     ]
@@ -173,12 +191,18 @@
         "ebId":"50464361263",
         "link":"https://www.eventbrite.com/e/rooftop-sunset-lounge-crawl-with-open-bar-tickets-50464361263?aff=ebapi",
         "title":"Rooftop Sunset Lounge Crawl with Open Bar",
+        "description": "Fun times",
+        "start": "",
+        "end": "",
         "votes":0
       },
       {
         "ebId":"50464085438",
         "link":"https://www.eventbrite.com/e/las-vegas-strip-walking-tour-tickets-50464085438?aff=ebapi",
         "title":"Las Vegas Strip Walking Tour",
+        "description": "Fun times",
+        "start": "",
+        "end": "",
         "votes":0
       }
     ]
