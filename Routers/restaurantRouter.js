@@ -12,7 +12,7 @@ router.use(jsonParser);
 
 router.get('/categories', (req,res,next) => {
   return rp({
-    uri: 'https://api.yelp.com/v3/categories',
+    uri: 'https://api.yelp.com/v3/categories?locale=en_US',
     headers: {
       'User-Agent': 'Request-Promise',
       'Content-Type':'application/json',
