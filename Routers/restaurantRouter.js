@@ -10,50 +10,43 @@ const rp = require('request-promise');
 router.use(jsonParser);
 
 
-//sample restaurant search using city with two cuisines: https://developers.zomato.com/api/v2.1/search?entity_id=287&entity_type=city&cuisines=italian%2C%20chinese
-//https://developers.zomato.com/api/v2.1/cities?lat=40.0000&lon=30.000
-//get cities from search
-router.get('/:lat/:lon', (req, res, next) => {   //change to use coordinates when we get the locator invovled
+router.get('/categories', (req,res,next) => {
   return rp({
-    uri: `https://developers.zomato.com/api/v2.1/cities?lat=${req.params.lat}&lon=${req.params.lon}`,
+    uri: 'https://api.yelp.com/v3/categories',
     headers: {
       'User-Agent': 'Request-Promise',
-      'Accept':'application/json',
-      'user-key':'02fb4b75d2055eb17f988da8447de24a',
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer R9O5m5ck2UooNSbeTDkOJpwjhuseeqYrwhtoWiL5GFyOGpfMMJbOLr6yWuMkXW7OVQwcPwO5DiLsa-InjEeS4cBNJe7KtAmhud9JKwvdogB4_w5WRpExpDIUUHS3W3Yx'
     },
-    json: true // Automatically parses the JSON string in the response
+    json:true
   })
     .then(data => {
-      console.log('backend coordinates',req.params.lat, req.params.lon);
-      console.log('data', data);
-      const correctCity = data.location_suggestions[0];
-      res.json(correctCity);
+      const cuisines = data.categories.filter(category => category.parent_aliases.includes('food') || category.parent_aliases.includes('restaurants'));
+      console.log(cuisines.length);
+      res.json(cuisines);
     })
     .catch(err => {
       next(err);
-      // API call failed...
     });
 });
 
-//probably need to do the restaurant call on the front-end because we'll need the city_code that we get from the city get call
-// router.get('/:cuisine',(req, res, next) => {
-//   return rp({
-//     uri: `https://developers.zomato.com/api/v2.1/search?entity_id=${cityCode}&entity_type=city&cuisines=${req.params.cuisine}`,
-//     headers: {
-//       'User-Agent': 'Request-Promise',
-//       'Accept':'application/json',
-//       'user-key':'02fb4b75d2055eb17f988da8447de24a',
-//     },
-//     json: true // Automatically parses the JSON string in the response
-//   })
-//     .then(data => {
-//       console.log(data);
-//       res.json(data);
-//     })
-//     .catch(err => {
-//       next(err);
-//     // API call failed...
-//     });
-// });
+router.get('/search/food/:category/:lat/:lon', (req,res, next) => {
+  const {category, lat, lon} = req.params;
+  return rp({
+    uri: `https://api.yelp.com/v3/businesses/search?categories=${category}&latitude=${lat}&longitude=${lon}&radius=24140`,
+    headers: {
+      'User-Agent': 'Request-Promise',
+      'Content-Type':'application/json',
+      'Authorization': 'Bearer R9O5m5ck2UooNSbeTDkOJpwjhuseeqYrwhtoWiL5GFyOGpfMMJbOLr6yWuMkXW7OVQwcPwO5DiLsa-InjEeS4cBNJe7KtAmhud9JKwvdogB4_w5WRpExpDIUUHS3W3Yx'
+    },
+    json:true
+  })
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = router;
