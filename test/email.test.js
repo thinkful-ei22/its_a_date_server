@@ -44,8 +44,8 @@ describe('/API/SEND endpoint', function(){
   describe('/API/SEND POST endpoint', function(){
     it('should send an email if valid input is provided', function(){
       const msg = {
-        to: 'jennifer.colna@gmail.com',
-        from: 'jennifer.colna@gmail.com',
+        to: 'jennifer.colna@example.com',
+        from: 'jennifer.colna@example.com',
         subject: 'test email',
         text: 'this is a test email',
         html: '<p>this is a test email</p>'
@@ -61,8 +61,8 @@ describe('/API/SEND endpoint', function(){
         })
         .then(data => {
           expect(data).to.have.keys('to', 'from', 'subject', 'text', 'html');
-          expect(data.to).to.equal('jennifer.colna@gmail.com');
-          expect(data.from).to.equal('jennifer.colna@gmail.com');
+          expect(data.to).to.equal('jennifer.colna@example.com');
+          expect(data.from).to.equal('jennifer.colna@example.com');
           expect(data.subject).to.equal('test email');
           expect(data.text).to.equal('this is a test email');
           expect(data.html).to.equal('<p>this is a test email</p>');
@@ -70,7 +70,7 @@ describe('/API/SEND endpoint', function(){
     });
     it('should return an error if missing `to`', function(){
       const msg = {
-        from: 'jennifer.colna@gmail.com',
+        from: 'jennifer.colna@example.com',
         subject: 'test email',
         text: 'this is a test email',
         html: '<p>this is a test email</p>'
@@ -90,7 +90,7 @@ describe('/API/SEND endpoint', function(){
     });
     it('should return an error if missing `from`', function(){
       const msg = {
-        to: 'jennifer.colna@gmail.com',
+        to: 'jennifer.colna@example.com',
         subject: 'test email',
         text: 'this is a test email',
         html: '<p>this is a test email</p>'
@@ -110,8 +110,8 @@ describe('/API/SEND endpoint', function(){
     });
     it('should return an error if missing `subject`', function(){
       const msg = {
-        to: 'jennifer.colna@gmail.com',
-        from: 'jennifer.colna@gmail.com',
+        to: 'jennifer.colna@example.com',
+        from: 'jennifer.colna@example.com',
         text: 'this is a test email',
         html: '<p>this is a test email</p>'
       };
@@ -130,8 +130,8 @@ describe('/API/SEND endpoint', function(){
     });
     it('should return an error if missing `text`', function(){
       const msg = {
-        to: 'jennifer.colna@gmail.com',
-        from: 'jennifer.colna@gmail.com',
+        to: 'jennifer.colna@example.com',
+        from: 'jennifer.colna@example.com',
         subject: 'this is a test email',
         html: '<p>this is a test email</p>'
       };
@@ -150,8 +150,8 @@ describe('/API/SEND endpoint', function(){
     });
     it('should return an error if missing `html`', function(){
       const msg = {
-        to: 'jennifer.colna@gmail.com',
-        from: 'jennifer.colna@gmail.com',
+        to: 'jennifer.colna@example.com',
+        from: 'jennifer.colna@example.com',
         subject: 'this is a test email',
         text: 'this is a test email'
       };
