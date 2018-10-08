@@ -3,8 +3,9 @@ const app = require('../index');
 const mongoose = require('mongoose');
 const chai = require('chai');
 const chaihttp = require('chai-http');
+const jwt = require('jsonwebtoken');
 
-const { TEST_DATABASE_URL } = require('../config');
+const { TEST_DATABASE_URL, JWT_SECRET, JWT_EXPIRY } = require('../config');
 
 const User = require('../Models/userSchema');
 const Event = require('../Models/eventSchema');
@@ -16,6 +17,9 @@ const expect = chai.expect;
 
 
 describe('/API/USERS endpoint', function(){
+  let webToken;
+  let user;
+
   before(function(){
     this.timeout(6000);
     return mongoose.connect(TEST_DATABASE_URL)
@@ -25,6 +29,14 @@ describe('/API/USERS endpoint', function(){
   beforeEach(function(){
     this.timeout(6000);
     return User.insertMany(seedUsers)
+      .then(insertedUsers => {
+        user = insertedUsers[0];
+        webToken = jwt.sign({user}, JWT_SECRET, {
+          subject: user.username,
+          expiresIn: JWT_EXPIRY,
+          algorithm: 'HS256'
+        });
+      })
       .then(() => Event.insertMany(seedEvents));
   });
 
@@ -63,6 +75,40 @@ describe('/API/USERS endpoint', function(){
               expect(dbRes[field]).to.not.equal(newUser[field]);
             }
           });
+        });
+    });
+  });
+
+  describe('GET to /api/users', function(){
+    it('should return user data if valid json webtoken is provided', function(){
+      return chai.request(app).get('/api/users')
+        .set('Authorization', `Bearer ${webToken}`)
+        .set('Content-Type', 'application/json')
+        .then(apiRes => {
+          expect(apiRes).to.be.json;
+          expect(apiRes.ok).to.equal(true);
+          expect(apiRes.unauthorized).to.equal(false);
+          expect(apiRes.body).to.have.keys('username', 'email', 'id');
+          expect(apiRes.body.username).to.equal(user.username);
+          expect(apiRes.body.email).to.equal(user.email);
+          expect(apiRes.body).to.not.include.keys('password');
+        });
+    });
+
+    it.only('should have proper headers for bad token', function(){
+      return chai.request(app).get('/api/users')
+        .set('Authorization', `Bearer ${webToken}a`)
+        .set('Content-Type', 'application/json')
+        .then(apiRes => {
+          expect(apiRes).to.be.json;
+          expect(apiRes.ok).to.equal(false);
+          expect(apiRes.unauthorized).to.equal(true);
+          expect(apiRes.statusCode).to.equal(401);
+          
+          const resText = JSON.parse(apiRes.text);
+          expect(resText.name).to.equal('AuthenticationError');
+          expect(resText.message).to.equal('Unauthorized');
+          expect(resText.status).to.equal(401);
         });
     });
   });
