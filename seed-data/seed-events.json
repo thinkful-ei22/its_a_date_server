@@ -14,15 +14,15 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "16973602",
-        "website": "https://www.zomato.com/denver/root-down-the-highlands?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Root Down",
+        "yelpId": "jx5kzkP_9zwh9BW0WVPAWw",
+        "website": "https://www.yelp.com/biz/osteria-marco-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Osteria Marco",
         "votes": 0
       },
       {
-        "zomatoId": "16970329",
-        "website": "https://www.zomato.com/denver/my-brothers-bar-lodo?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "My Brother's Bar",
+        "yelpId": "V4K--8TIaM3iNxy85nELVw",
+        "website": "https://www.yelp.com/biz/sliceworks-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Sliceworks",
         "votes": 0
       }
     ],
@@ -64,21 +64,21 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "17021064",
-        "website": "https://www.zomato.com/philadelphia/becks-cajun-cafe-washington-square-west?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Beck's Cajun Cafe",
+        "yelpId": "jULIPydhMj18KOI5OHTwfA",
+        "website": "https://www.yelp.com/biz/buena-onda-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Buena Onda",
         "votes": 0
       },
       {
-        "zomatoId": "17009721",
-        "website": "https://www.zomato.com/philadelphia/bourbon-blue-roxborough-manayunk?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Bourbon Blue",
+        "yelpId": "MF5-JPr0auUkY_WLTTVUaA",
+        "website": "https://www.yelp.com/biz/illegal-tacos-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Illegal Tacos",
         "votes": 0
       },
       {
-        "zomatoId": "17022246",
-        "website": "https://www.zomato.com/philadelphia/rex-1516-graduate-hospital?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Rex 1516",
+        "yelpId": "vf2dlfdopFlerxozUwgPDg",
+        "website": "https://www.yelp.com/biz/dos-hermanos-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Dos Hermanos",
         "votes": 0
       }
     ],
@@ -118,13 +118,13 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "17195615",
+        "yelpId": "17195615",
         "website": "https://www.zomato.com/nashville/red-bicycle-coffee-crêpes-nashville?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Red Bicycle Coffee & Crêpes",
         "votes": 0
       },
       {
-        "zomatoId": "17194688",
+        "yelpId": "17194688",
         "website": "https://www.zomato.com/nashville/mimis-cafe-murfreesboro?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Mimi's Cafe",
         "votes": 0
@@ -168,19 +168,19 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "16980971",
+        "yelpId": "16980971",
         "website": "https://www.zomato.com/las-vegas/yard-house-enterprise?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Yard House",
         "votes": 0
       },
       {
-        "zomatoId": "16977581",
+        "yelpId": "16977581",
         "website": "https://www.zomato.com/las-vegas/bjs-restaurant-brewhouse-summerlin?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "BJ's Restaurant & Brewhouse",
         "votes": 0
       },
       {
-        "zomatoId": "16978398",
+        "yelpId": "16978398",
         "website": "https://www.zomato.com/las-vegas/fiamma-trattoria-bar-the-strip?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Fiamma Trattoria & Bar",
         "votes": 0
