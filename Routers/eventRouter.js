@@ -157,8 +157,10 @@ router.delete('/:id', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+
   Event.findOneAndRemove({_id:id, userId})
     .then(() => {
+      console.log('DELETE RES=',res);
       res.sendStatus(204).end();
     })
     .catch(err => {
