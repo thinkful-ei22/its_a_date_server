@@ -95,7 +95,7 @@ describe('/API/USERS endpoint', function(){
         });
     });
 
-    it.only('should have proper headers for bad token', function(){
+    it('should have proper headers for bad token', function(){
       return chai.request(app).get('/api/users')
         .set('Authorization', `Bearer ${webToken}a`)
         .set('Content-Type', 'application/json')
