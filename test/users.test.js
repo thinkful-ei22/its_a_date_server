@@ -1,4 +1,4 @@
-'use strict';
+
 const app = require('../index');
 const mongoose = require('mongoose');
 const chai = require('chai');
