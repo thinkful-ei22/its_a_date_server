@@ -5,6 +5,7 @@ const eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
   draft: Boolean,
   description: String,
+  shortUrl:String,
   location: {latitude: Number, longitude: Number},
   locationCity: {city: String, state: String},
   scheduleOptions: [
