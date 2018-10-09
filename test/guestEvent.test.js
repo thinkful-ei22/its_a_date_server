@@ -138,14 +138,21 @@ describe('/API/USERS endpoint', function(){
               dateSelection, restaurantSelection, activitySelection
             });
         })
-        .then( (putRes) => {
+        .then( () => {
           return Event.findById(event.id);
         })
         .then(dbResult => {
           const originalRest = event.restaurantOptions.find(rest => rest.yelpId === restaurantSelection[0]);
           const votedRest = dbResult.restaurantOptions.find(rest => rest.yelpId === restaurantSelection[0]);
           expect(votedRest.votes).to.equal(originalRest.votes + 1);
-          /////// FINISH THIS TEST ////////////////
+
+          const originalDate = event.scheduleOptions.find(date => date.id === dateSelection[0]);
+          const votedDate = dbResult.scheduleOptions.find(date => date.id === dateSelection[0]);
+          expect(votedDate.votes).to.equal(originalDate.votes + 1);
+
+          const originalActivity = event.activityOptions.find(act => act.ebId === activitySelection[0]);
+          const votedActivity = dbResult.activityOptions.find(act => act.ebId === activitySelection[0]);
+          expect(votedActivity.votes).to.equal(originalActivity.votes + 1);
         });
     });
   });

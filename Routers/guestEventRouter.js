@@ -49,7 +49,7 @@ router.put('/:id',  (req, res, next) => {
         }
       });
       newRestaurantOptions.forEach( (restaurantObject, index) => {
-        if (restaurantIds.includes(restaurantObject.zomatoId)) {
+        if (restaurantIds.includes(restaurantObject.yelpId)) {
           newRestaurantOptions[index].votes = newRestaurantOptions[index].votes + 1;
         }
       });
