@@ -4,6 +4,7 @@
     "userId": "000000000000000000000001",
     "title": "Italian Night",
     "description": "Pizza for all!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "draft":"false",
     "location": {"latitude": 39.7392, "longitude": -104.9903},
     "locationCity": {"city": "Denver", "state": "CO"},
@@ -32,6 +33,7 @@
         "link": "https://www.eventbrite.com/e/kids-crossfit-ages-4-to-17-tickets-41090701394?aff=ebapi",
         "title": "Kids CrossFit - Ages 4 to 17!",
         "description":"get swole!",
+        "shortUrl":"http://bit.ly/2E7TvIU",
         "start": "",
         "end": "",
         "votes": 0
@@ -55,6 +57,7 @@
     "title": "Taco Night",
     "draft": "true",
     "description": "I love tacos and so do you!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "location": {"latitude": 39.9526, "longitude": -75.1652},
     "locationCity": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
@@ -108,7 +111,7 @@
     "title": "Bachelorette",
     "draft":"false",
     "description": "Julie's tying the knot!",
-   
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "location":{"latitude":36.1627, "longitude":-86.7816},
     "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 
@@ -161,6 +164,7 @@
     "location":{"latitude":36.1699,"longitude":-115.1398},
     "locationCity": {"city": "Las Vegas", "state": "NV"},
     "description": "Mike's last night of freedom!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "scheduleOptions": [ 
       {"date": "Thu, Feb 28, 2019 4:42 PM", "votes": 0},
       {"date": "Wed, Nov 14, 2018 7:42 PM", "votes": 0},
@@ -192,6 +196,7 @@
         "link":"https://www.eventbrite.com/e/rooftop-sunset-lounge-crawl-with-open-bar-tickets-50464361263?aff=ebapi",
         "title":"Rooftop Sunset Lounge Crawl with Open Bar",
         "description": "Fun times",
+        "shortUrl":"http://bit.ly/2E7TvIU",
         "start": "",
         "end": "",
         "votes":0

@@ -13,6 +13,7 @@ const eventRouter = require('./Routers/eventRouter');
 const loginRouter = require('./Routers/authRouter');
 const restaurantRouter = require('./Routers/restaurantRouter');
 const guestEventRouter = require('./Routers/guestEventRouter');
+const bitlyRouter = require('./Routers/bitlyRouter');
 const emailRouter = require('./Routers/email');
 const app = express();
 
@@ -37,6 +38,7 @@ app.use('/api/login', loginRouter);
 app.use('/api/users', registrationRouter);
 app.use('/api/restaurants', restaurantRouter);
 app.use('/api/send', emailRouter);
+app.use('/api/bitly', bitlyRouter);
 
 // Custom 404 Not Found route handler
 app.use((req, res, next) => {
