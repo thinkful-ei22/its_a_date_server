@@ -1,4 +1,6 @@
 'use strict';
+const mongoose = require('mongoose');
+const Event = require('../Models/eventSchema');
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
@@ -8,13 +10,14 @@ const jwtAuth = passport.authenticate('jwt', { session: false, failWithError: tr
 const axios = require('axios');
 
 router.get('/', jwtAuth, (req, res, next) => {
+  console.log('req query',req.query);
   let {longUrl} = req.query;
-//   console.log('Bitly Req query',longUrl);
+  let {eventId} = req.query;
   axios.get(`${BITLY_BASE_URL}/shorten?access_token=${BITLY_API_KEY}&longUrl=${longUrl}`)
     .then(({data}) => {
-    //   console.log('bitly response url',data);
-      res.json(data.data.url);
+      return Event.findByIdAndUpdate(eventId,{shortUrl:data.data.url},{new:true}); 
     })
+    .then( event => res.json(event.shortUrl))
     .catch(err => {
       next(err);
     });
