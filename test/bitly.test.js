@@ -48,24 +48,24 @@ describe('/API/USERS endpoint', function(){
     return mongoose.disconnect();
   });
 
-  // describe('GET to /api/bitly', function(){
-  //   it.only('should return a short url when given a long url', function(){
-  //     let event;
-  //     return Event.findOne()
-  //       .then(_event => {
-  //         event = _event;
-  //         return chai.request(app)
-  //           .get('/api/bitly?longUrl=https://www.goodtimes-client.herokuapp.com/guestevents/' + event.id)
-  //           .set('Authorization', `Bearer ${webToken}`);
-  //       })
-  //       .then(apiRes => {
-  //         console.log('BODY',apiRes.body);
-  //         expect(apiRes).to.be.json;
-  //         expect(apiRes.ok).to.equal(true);
-  //         expect(apiRes.body).to.exist;
-  //       });
-  //   });
-  // });
+  describe('GET to /api/bitly', function(){
+    it.only('should return a short url when given a long url', function(){
+      let event;
+      return Event.create({title: 'NEWTITLE'})
+        .then(_event => {
+          event = _event;
+          return chai.request(app)
+            .get(`/api/bitly?longUrl=https://goodtimes-client.herokuapp.com/guestevents/${event.id}&eventId=${event.id}`)
+            .set('Authorization', `Bearer ${webToken}`);
+        })
+        .then(apiRes => {
+          console.log('BODY',apiRes.body);
+          expect(apiRes).to.be.json;
+          expect(apiRes.ok).to.equal(true);
+          expect(apiRes.body).to.exist;
+        });
+    });
+  });
 
 
   
