@@ -137,7 +137,7 @@ describe('/API/USERS endpoint', function(){
         });
     });
 
-    it.only('should not send new token if invalid token is provided', function(){
+    it('should not send new token if invalid token is provided', function(){
       return chai.request(app).post('/api/login/refresh')
         .set('Authorization', `Bearer ${webToken}a`)
         .set('Content-Type', 'application/json')
