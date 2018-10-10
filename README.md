@@ -1,4 +1,4 @@
-# Goodtimes
+# Goodtimes [![Build Status](https://travis-ci.org/thinkful-ei22/its_a_date_server.svg?branch=master)](https://travis-ci.org/thinkful-ei22/its_a_date_server)
 
 An app for creating and sharing social events.
 
