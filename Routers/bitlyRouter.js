@@ -15,6 +15,7 @@ router.get('/', jwtAuth, (req, res, next) => {
   let {eventId} = req.query;
   axios.get(`${BITLY_BASE_URL}/shorten?access_token=${BITLY_API_KEY}&longUrl=${longUrl}`)
     .then(({data}) => {
+      console.log('bitly data',data);
       return Event.findByIdAndUpdate(eventId,{shortUrl:data.data.url},{new:true}); 
     })
     .then( event => res.json(event.shortUrl))
