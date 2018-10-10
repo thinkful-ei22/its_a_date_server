@@ -16,7 +16,7 @@ const eventSchema = new mongoose.Schema({
   ],
   restaurantOptions: [
     {
-      zomatoId: String,
+      yelpId: String,
       website: String,
       name: String,
       votes: {type: Number, default: 0}

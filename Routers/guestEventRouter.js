@@ -3,23 +3,30 @@
 const express = require('express');
 const Event = require('../Models/eventSchema');
 const router = express.Router();
-//const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
 
 router.get('/:id',  (req, res, next) => {
   const id = req.params.id;
+
+  if(!mongoose.Types.ObjectId.isValid(id)){
+    const err = new Error('ID is not valid');
+    err.status = 400;
+    return next(err);
+  }
+
   return Event.findById(id)
     .then(result => {
       if(result){
-        res.json(result);
+        return res.json(result);
       } else {
-        next();
+        return next();
       }
     })
     .catch(err => {
-      next(err);
+      return next(err);
     });
 });
 
@@ -42,7 +49,7 @@ router.put('/:id',  (req, res, next) => {
         }
       });
       newRestaurantOptions.forEach( (restaurantObject, index) => {
-        if (restaurantIds.includes(restaurantObject.zomatoId)) {
+        if (restaurantIds.includes(restaurantObject.yelpId)) {
           newRestaurantOptions[index].votes = newRestaurantOptions[index].votes + 1;
         }
       });
@@ -51,7 +58,6 @@ router.put('/:id',  (req, res, next) => {
           newActivityOptions[index].votes = newActivityOptions[index].votes +1;
         }}
       );
-      console.log('NEW OPTIONS', newRestaurantOptions);
       return Event.findByIdAndUpdate(eventId, {
         scheduleOptions: newScheduleOptions,
         restaurantOptions: newRestaurantOptions,

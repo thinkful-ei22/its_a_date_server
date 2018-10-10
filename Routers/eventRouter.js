@@ -80,7 +80,6 @@ router.post('/', jwtAuth, (req, res, next) => {
     activityOptions
   };
 
-  console.log('New event', newEvent);
   if(!newEvent.title){
     const err = new Error('Missing `title` in request body');
     err.status = 400;
@@ -89,7 +88,6 @@ router.post('/', jwtAuth, (req, res, next) => {
 
   Event.create(newEvent)
     .then( createdEvent => {
-      console.log('CREATED EVENT',createdEvent);
       res
         .location(`${req.originalUrl}/${createdEvent.id}`)
         .status(201)
