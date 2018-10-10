@@ -120,7 +120,7 @@ describe('/API/USERS endpoint', function(){
 
 
   describe('PUT to /api/guestevents/:id', function(){
-    it.only('should update votes if valid ID is provided', function(){
+    it('should update votes if valid ID is provided', function(){
       let event;
       let dateSelection;
       let restaurantSelection;

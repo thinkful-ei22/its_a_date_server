@@ -1,45 +1,237 @@
-# Thinkful Backend Template
+# Goodtimes
 
-A template for developing and deploying Node.js apps.
+An app for creating and sharing social events.
 
-## Getting started
+### *Let the Goodtimes roll!*
 
-### Setting up a project
+### Deployment
 
-* Move into your projects directory: `cd ~/YOUR_PROJECTS_DIRECTORY`
-* Clone this repository: `git clone https://github.com/Thinkful-Ed/backend-template YOUR_PROJECT_NAME`
-* Move into the project directory: `cd YOUR_PROJECT_NAME`
-* Install the dependencies: `npm install`
-* Create a new repo on GitHub: https://github.com/new
-    * Make sure the "Initialize this repository with a README" option is left unchecked
-* Update the remote to point to your GitHub repository: `git remote set-url origin https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY_NAME`
+[Live app](https://goodtimes-client.herokuapp.com/)
 
-### Working on the project
+[Client-side repo](https://github.com/thinkful-ei22/its_a_date_client)
 
-* Move into the project directory: `cd ~/YOUR_PROJECTS_DIRECTORY/YOUR_PROJECT_NAME`
-* Run the development task: `npm start`
-    * Starts a server running at http://localhost:8080
-    * Automatically restarts when any of your files change
 
-## Databases
+### Tech-Stack
 
-By default, the template is configured to connect to a MongoDB database using Mongoose.  It can be changed to connect to a PostgreSQL database using Knex by replacing any imports of `db-mongoose.js` with imports of `db-knex.js`, and uncommenting the Postgres `DATABASE_URL` lines in `config.js`.
+Front-end                      | Back-end
+_______________________________|_________________________________
+ HTML                          |  Node/Express
+ CSS                           |  Sendgrid
+ React                         |  MongoDB/mongoose
+ Redux                         |  JSON Webtoken
+ React-Router                  |  Bcrypt.js
+ Redux-Form                    |  Passport.js
+ React-Icons                   |  Axios
+ Moment.js                     |  Request/Promise
+ Lodash                        |  Bit.ly API
+ Node-sass                     |  Yelp API
+ Bing Maps API                 |  Event Bright API
+ Enzyme/jest                   |  Continuous Integration (Travis)
+ Continuous Deployment (Heroku)|  Continuous Deployment (Heroku)
+                               |  Mocha/Chai
 
-## Deployment
 
-Requires the [Heroku CLI client](https://devcenter.heroku.com/articles/heroku-command-line).
 
-### Setting up the project on Heroku
+### API Documentation
 
-* Move into the project directory: `cd ~/YOUR_PROJECTS_DIRECTORY/YOUR_PROJECT_NAME`
-* Create the Heroku app: `heroku create PROJECT_NAME`
+##### Authorization
 
-* If your backend connects to a database, you need to configure the database URL:
-    * For a MongoDB database: `heroku config:set DATABASE_URL=mongodb://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME`
-    * For a PostgreSQL database: `heroku config:set DATABASE_URL=postgresql://USERNAME:PASSWORD@HOST:PORT/DATABASE_NAME`
+###### GET a JSON Web Token (Login)
 
-* If you are creating a full-stack app, you need to configure the client origin: `heroku config:set CLIENT_ORIGIN=https://www.YOUR_DEPLOYED_CLIENT.com`
+* Type: `POST`
 
-### Deploying to Heroku
+* URL: `https://itsadateserver.herokuapp.com/api/login`
 
-* Push your code to Heroku: `git push heroku master`
+* Required Request Headers: ```{
+  Content-Type: `application/json`
+}```
+
+* Required Request JSON Body: ```{
+  username: UsernameStringGoesHere,
+  password: PasswordStringGoesHere
+}```
+
+* Response Body will be a JSON Web Token: ```{
+  authToken: 'theTokenWillBeHereAsAString'
+}```
+
+* Note - Web Token is valid for 7 days from the issue date
+
+
+
+##### Event Data
+
+###### GET all events
+
+* Requires valid JSON Webtoken
+
+* Type: `GET`
+
+* URL: `https://itsadateserver.herokuapp.com/api/events`
+
+* Required Headers: ```{
+  Authorization: `Bearer JSONWebToken`
+}```
+
+* Response Body will be an array of events: ```[
+  {
+  "_id" : ObjectId("111111111111111111111111"),
+  "location" : {
+    "latitude" : 39.7392,
+    "longitude" : -104.9903
+  },
+  "locationCity" : {
+    "city" : "Denver",
+    "state" : "CO"
+  },
+  "userId" : ObjectId("000000000000000000000001"),
+  "title" : "Italian Night",
+  "description" : "Pizza for all!",
+  "shortUrl" : "http://bit.ly/2E7TvIU",
+  "draft" : false,
+  "scheduleOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887299"),
+      "date" : "Mon, Sep 17, 2018 11:47 AM"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887298"),
+      "date" : "Thu, Oct 18, 2018 6:47 PM"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887297"),
+      "date" : "Tue, Oct 30, 2018 5:30 PM"
+    }
+  ],
+  "restaurantOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729b"),
+      "yelpId" : "jx5kzkP_9zwh9BW0WVPAWw",
+      "website" : "https://www.yelp.com/biz/osteria-marco-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+      "name" : "Osteria Marco"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729a"),
+      "yelpId" : "V4K--8TIaM3iNxy85nELVw",
+      "website" : "https://www.yelp.com/biz/sliceworks-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+      "name" : "Sliceworks"
+    }
+  ],
+  "activityOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729d"),
+      "ebId" : "41090701394",
+      "link" : "https://www.eventbrite.com/e/kids-crossfit-ages-4-to-17-tickets-41090701394?aff=ebapi",
+      "title" : "Kids CrossFit - Ages 4 to 17!",
+      "description" : "get swole!",
+      "start" : "",
+      "end" : ""
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729c"),
+      "ebId" : "49111123693",
+      "link" : "https://www.eventbrite.com/e/open-mat-jiu-jitsu-all-levels-tickets-49111123693?aff=ebapi",
+      "title" : "Open Mat Jiu Jitsu - ALL Levels",
+      "description" : "Hi - ya!",
+      "start" : "",
+      "end" : ""
+    }
+  ]
+}, ...
+]```
+
+
+###### GET a single event
+
+* Requires valid JSON Webtoken
+
+* Type: `GET`
+
+* URL: `https://itsadateserver.herokuapp.com/api/events/eventID`
+* Example: `https://itsadateserver.herokuapp.com/api/events/1a2b3c4e5f6a718a93201234`
+
+* Required Headers: ```{
+  Authorization: `Bearer JSONWebToken`
+}```
+
+* Response Body will be a single event: ```{
+  "_id" : ObjectId("111111111111111111111111"),
+  "location" : {
+    "latitude" : 39.7392,
+    "longitude" : -104.9903
+  },
+  "locationCity" : {
+    "city" : "Denver",
+    "state" : "CO"
+  },
+  "userId" : ObjectId("000000000000000000000001"),
+  "title" : "Italian Night",
+  "description" : "Pizza for all!",
+  "shortUrl" : "http://bit.ly/2E7TvIU",
+  "draft" : false,
+  "scheduleOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887299"),
+      "date" : "Mon, Sep 17, 2018 11:47 AM"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887298"),
+      "date" : "Thu, Oct 18, 2018 6:47 PM"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b0512887297"),
+      "date" : "Tue, Oct 30, 2018 5:30 PM"
+    }
+  ],
+  "restaurantOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729b"),
+      "yelpId" : "jx5kzkP_9zwh9BW0WVPAWw",
+      "website" : "https://www.yelp.com/biz/osteria-marco-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+      "name" : "Osteria Marco"
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729a"),
+      "yelpId" : "V4K--8TIaM3iNxy85nELVw",
+      "website" : "https://www.yelp.com/biz/sliceworks-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+      "name" : "Sliceworks"
+    }
+  ],
+  "activityOptions" : [
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729d"),
+      "ebId" : "41090701394",
+      "link" : "https://www.eventbrite.com/e/kids-crossfit-ages-4-to-17-tickets-41090701394?aff=ebapi",
+      "title" : "Kids CrossFit - Ages 4 to 17!",
+      "description" : "get swole!",
+      "start" : "",
+      "end" : ""
+    },
+    {
+      "votes" : 0,
+      "_id" : ObjectId("5bbce8a55bc32b051288729c"),
+      "ebId" : "49111123693",
+      "link" : "https://www.eventbrite.com/e/open-mat-jiu-jitsu-all-levels-tickets-49111123693?aff=ebapi",
+      "title" : "Open Mat Jiu Jitsu - ALL Levels",
+      "description" : "Hi - ya!",
+      "start" : "",
+      "end" : ""
+    }
+  ]
+}```
+
+
+
