@@ -12,12 +12,28 @@ const axios = require('axios');
 router.get('/', jwtAuth, (req, res, next) => {
   let {longUrl} = req.query;
   let {eventId} = req.query;
-  console.log('QUERY INFO: ',longUrl, eventId);
-  console.log('API KEY: ',BITLY_API_KEY);
-  console.log('BASE URL ',BITLY_BASE_URL);
+
+  //undefined ID's will be parsed as strings
+  if (eventId === 'undefined' || eventId === 'null') {
+    const err = new Error('Event ID is not defined');
+    err.status = 422;
+    return next(err);
+  }
+
+  if (!mongoose.Types.ObjectId.isValid(eventId)) {
+    const err = new Error('The event ID is not a valid Mongo ID');
+    err.status = 422;
+    return next(err);
+  }
+
+  if (!longUrl.includes(eventId)){
+    const err = new Error('The long URL must contain the event ID');
+    err.status = 422;
+    return next(err);
+  }
+
   axios.get(`${BITLY_BASE_URL}/shorten?access_token=${BITLY_API_KEY}&longUrl=${longUrl}`)
     .then(({data}) => {
-      console.log('DATA', data);
       return Event.findByIdAndUpdate(eventId,{shortUrl:data.data.url},{new:true}); 
     })
     .then( event => res.json(event.shortUrl))

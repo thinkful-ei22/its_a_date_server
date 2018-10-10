@@ -49,7 +49,7 @@ describe('/API/USERS endpoint', function(){
   });
 
   describe('GET to /api/bitly', function(){
-    it.only('should return a short url when given a long url', function(){
+    it('should return a short url when given a long url', function(){
       let event;
       return Event.create({title: 'NEWTITLE'})
         .then(_event => {
@@ -59,12 +59,65 @@ describe('/API/USERS endpoint', function(){
             .set('Authorization', `Bearer ${webToken}`);
         })
         .then(apiRes => {
-          console.log('BODY',apiRes.body);
           expect(apiRes).to.be.json;
+          expect(apiRes.status).to.equal(200);
           expect(apiRes.ok).to.equal(true);
           expect(apiRes.body).to.exist;
+          expect(apiRes.body.startsWith('http://bit.ly/')).to.equal(true);
+          expect(apiRes.body.length).to.be.lessThan(30);
         });
     });
+
+    it('should return an error if invalid MongoId is provided', function(){
+      let eventId = '0101010101010101010101zz';
+      return chai.request(app)
+        .get(`/api/bitly?longUrl=https://goodtimes-client.herokuapp.com/guestevents/${eventId}&eventId=${eventId}`)
+        .set('Authorization', `Bearer ${webToken}`)
+        .then(apiRes => {
+          expect(apiRes).to.be.json;
+          expect(apiRes.status).to.equal(422);
+          expect(apiRes.ok).to.equal(false);
+          expect(apiRes.body).to.exist;
+          expect(apiRes.body.message).to.equal('The event ID is not a valid Mongo ID');
+          expect(apiRes.body.status).to.equal(422);
+        });
+    });
+
+    it('should return an error if long url does not include event ID', function(){
+      let event;
+      return Event.create({title: 'NEWTITLE'})
+        .then(_event => {
+          event = _event;
+          return chai.request(app)
+            .get(`/api/bitly?longUrl=https://goodtimes-client.herokuapp.com/guestevents/&eventId=${event.id}`)
+            .set('Authorization', `Bearer ${webToken}`);
+        })
+        .then(apiRes => {
+          expect(apiRes).to.be.json;
+          expect(apiRes.status).to.equal(422);
+          expect(apiRes.ok).to.equal(false);
+          expect(apiRes.body).to.exist;
+          expect(apiRes.body.message).to.equal('The long URL must contain the event ID');
+          expect(apiRes.body.status).to.equal(422);
+        });
+    });
+
+    it('should return an error if event ID is undefined', function(){
+      let eventId;
+      return chai.request(app)
+        .get(`/api/bitly?longUrl=https://goodtimes-client.herokuapp.com/guestevents/${eventId}&eventId=${eventId}`)
+        .set('Authorization', `Bearer ${webToken}`)
+        .then(apiRes => {
+          expect(apiRes).to.be.json;
+          expect(apiRes.status).to.equal(422);
+          expect(apiRes.ok).to.equal(false);
+          expect(apiRes.body).to.exist;
+          expect(apiRes.body.message).to.equal('Event ID is not defined');
+          expect(apiRes.body.status).to.equal(422);
+        });
+    });
+
+    
   });
 
 
