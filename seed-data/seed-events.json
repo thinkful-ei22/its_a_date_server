@@ -4,6 +4,7 @@
     "userId": "000000000000000000000001",
     "title": "Italian Night",
     "description": "Pizza for all!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "draft":"false",
     "location": {"latitude": 39.7392, "longitude": -104.9903},
     "locationCity": {"city": "Denver", "state": "CO"},
@@ -14,15 +15,15 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "16973602",
-        "website": "https://www.zomato.com/denver/root-down-the-highlands?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Root Down",
+        "yelpId": "jx5kzkP_9zwh9BW0WVPAWw",
+        "website": "https://www.yelp.com/biz/osteria-marco-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Osteria Marco",
         "votes": 0
       },
       {
-        "zomatoId": "16970329",
-        "website": "https://www.zomato.com/denver/my-brothers-bar-lodo?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "My Brother's Bar",
+        "yelpId": "V4K--8TIaM3iNxy85nELVw",
+        "website": "https://www.yelp.com/biz/sliceworks-denver?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Sliceworks",
         "votes": 0
       }
     ],
@@ -32,6 +33,7 @@
         "link": "https://www.eventbrite.com/e/kids-crossfit-ages-4-to-17-tickets-41090701394?aff=ebapi",
         "title": "Kids CrossFit - Ages 4 to 17!",
         "description":"get swole!",
+        "shortUrl":"http://bit.ly/2E7TvIU",
         "start": "",
         "end": "",
         "votes": 0
@@ -55,6 +57,7 @@
     "title": "Taco Night",
     "draft": "true",
     "description": "I love tacos and so do you!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "location": {"latitude": 39.9526, "longitude": -75.1652},
     "locationCity": {"city": "Philadelphia", "state": "PA"},
     "scheduleOptions": [ 
@@ -64,21 +67,21 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "17021064",
-        "website": "https://www.zomato.com/philadelphia/becks-cajun-cafe-washington-square-west?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Beck's Cajun Cafe",
+        "yelpId": "jULIPydhMj18KOI5OHTwfA",
+        "website": "https://www.yelp.com/biz/buena-onda-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Buena Onda",
         "votes": 0
       },
       {
-        "zomatoId": "17009721",
-        "website": "https://www.zomato.com/philadelphia/bourbon-blue-roxborough-manayunk?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Bourbon Blue",
+        "yelpId": "MF5-JPr0auUkY_WLTTVUaA",
+        "website": "https://www.yelp.com/biz/illegal-tacos-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Illegal Tacos",
         "votes": 0
       },
       {
-        "zomatoId": "17022246",
-        "website": "https://www.zomato.com/philadelphia/rex-1516-graduate-hospital?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
-        "name": "Rex 1516",
+        "yelpId": "vf2dlfdopFlerxozUwgPDg",
+        "website": "https://www.yelp.com/biz/dos-hermanos-philadelphia?adjust_creative=eMUfDEmLylrpi34N26CFaw&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_search&utm_source=eMUfDEmLylrpi34N26CFaw",
+        "name": "Dos Hermanos",
         "votes": 0
       }
     ],
@@ -108,7 +111,7 @@
     "title": "Bachelorette",
     "draft":"false",
     "description": "Julie's tying the knot!",
-   
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "location":{"latitude":36.1627, "longitude":-86.7816},
     "locationCity": {"city": "Nashville", "state": "TN"},
     "scheduleOptions": [ 
@@ -118,13 +121,13 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "17195615",
+        "yelpId": "17195615",
         "website": "https://www.zomato.com/nashville/red-bicycle-coffee-crêpes-nashville?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Red Bicycle Coffee & Crêpes",
         "votes": 0
       },
       {
-        "zomatoId": "17194688",
+        "yelpId": "17194688",
         "website": "https://www.zomato.com/nashville/mimis-cafe-murfreesboro?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Mimi's Cafe",
         "votes": 0
@@ -161,6 +164,7 @@
     "location":{"latitude":36.1699,"longitude":-115.1398},
     "locationCity": {"city": "Las Vegas", "state": "NV"},
     "description": "Mike's last night of freedom!",
+    "shortUrl":"http://bit.ly/2E7TvIU",
     "scheduleOptions": [ 
       {"date": "Thu, Feb 28, 2019 4:42 PM", "votes": 0},
       {"date": "Wed, Nov 14, 2018 7:42 PM", "votes": 0},
@@ -168,19 +172,19 @@
     ],
     "restaurantOptions": [
       {
-        "zomatoId": "16980971",
+        "yelpId": "16980971",
         "website": "https://www.zomato.com/las-vegas/yard-house-enterprise?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Yard House",
         "votes": 0
       },
       {
-        "zomatoId": "16977581",
+        "yelpId": "16977581",
         "website": "https://www.zomato.com/las-vegas/bjs-restaurant-brewhouse-summerlin?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "BJ's Restaurant & Brewhouse",
         "votes": 0
       },
       {
-        "zomatoId": "16978398",
+        "yelpId": "16978398",
         "website": "https://www.zomato.com/las-vegas/fiamma-trattoria-bar-the-strip?utm_source=api_basic_user&utm_medium=api&utm_campaign=v2.1",
         "name": "Fiamma Trattoria & Bar",
         "votes": 0
@@ -192,6 +196,7 @@
         "link":"https://www.eventbrite.com/e/rooftop-sunset-lounge-crawl-with-open-bar-tickets-50464361263?aff=ebapi",
         "title":"Rooftop Sunset Lounge Crawl with Open Bar",
         "description": "Fun times",
+        "shortUrl":"http://bit.ly/2E7TvIU",
         "start": "",
         "end": "",
         "votes":0

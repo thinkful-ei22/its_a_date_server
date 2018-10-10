@@ -26,6 +26,16 @@ router.post('/', jwtAuth, (req, res, next) => {
     err.status = 400;
     return next(err);
   }
+  if(!msg.subject){
+    const err = new Error('Missing `subject` in request body');
+    err.status = 400;
+    return next(err);
+  }
+  if(!msg.text || !msg.html){
+    const err = new Error('Missing `body` in request body');
+    err.status = 400;
+    return next(err);
+  }
   sgMail.send(msg)
     .then(result => {
       if(result){

@@ -5,6 +5,7 @@ const eventSchema = new mongoose.Schema({
   title: {type: String, required: true},
   draft: Boolean,
   description: String,
+  shortUrl:String,
   location: {latitude: Number, longitude: Number},
   locationCity: {city: String, state: String},
   scheduleOptions: [
@@ -15,7 +16,7 @@ const eventSchema = new mongoose.Schema({
   ],
   restaurantOptions: [
     {
-      zomatoId: String,
+      yelpId: String,
       website: String,
       name: String,
       votes: {type: Number, default: 0}
