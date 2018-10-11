@@ -13,22 +13,22 @@ An app for creating and sharing social events.
 
 ### Tech-Stack
 
-Front-end                      | Back-end
-_______________________________|_________________________________
- HTML                          |  Node/Express
- CSS                           |  Sendgrid
- React                         |  MongoDB/mongoose
- Redux                         |  JSON Webtoken
- React-Router                  |  Bcrypt.js
- Redux-Form                    |  Passport.js
- React-Icons                   |  Axios
- Moment.js                     |  Request/Promise
- Lodash                        |  Bit.ly API
- Node-sass                     |  Yelp API
- Bing Maps API                 |  Event Bright API
- Enzyme/jest                   |  Continuous Integration (Travis)
- Continuous Deployment (Heroku)|  Continuous Deployment (Heroku)
-                               |  Mocha/Chai
+Front-end                       | Back-end
+--------------------------------|------------------------------------
+ HTML                           |  Node/Express
+ CSS                            |  Sendgrid
+ React                          |  MongoDB/mongoose
+ Redux                          |  JSON Webtoken
+ React-Router                   |  Bcrypt.js
+ Redux-Form                     |  Passport.js
+ React-Icons                    |  Axios
+ Moment.js                      |  Request/Promise Library
+ Lodash                         |  Bit.ly API
+ Node-sass                      |  Yelp API
+ Bing Maps API                  |  Event Bright API
+ Enzyme/jest                    |  Mocha/Chai
+ Continuous Integration (Travis)|  Continuous Integration (Travis)
+ Continuous Deployment (Heroku) |  Continuous Deployment (Heroku)
 
 
 
@@ -38,22 +38,31 @@ _______________________________|_________________________________
 
 ###### GET a JSON Web Token (Login)
 
-* Type: `POST`
+* Request Type: `POST`
 
 * URL: `https://itsadateserver.herokuapp.com/api/login`
 
-* Required Request Headers: ```{
+* Required Request Headers: 
+```
+{
   Content-Type: `application/json`
-}```
+}
+```
 
-* Required Request JSON Body: ```{
-  username: UsernameStringGoesHere,
-  password: PasswordStringGoesHere
-}```
+* Required Request JSON Body: 
+```
+{
+  username: 'UsernameStringGoesHere',
+  password: 'PasswordStringGoesHere'
+}
+```
 
-* Response Body will be a JSON Web Token: ```{
+* Response Body will be a JSON Web Token: 
+```
+{
   authToken: 'theTokenWillBeHereAsAString'
-}```
+}
+```
 
 * Note - Web Token is valid for 7 days from the issue date
 
@@ -65,15 +74,20 @@ _______________________________|_________________________________
 
 * Requires valid JSON Webtoken
 
-* Type: `GET`
+* Request Type: `GET`
 
 * URL: `https://itsadateserver.herokuapp.com/api/events`
 
-* Required Headers: ```{
+* Required Request Headers: 
+```
+{
   Authorization: `Bearer JSONWebToken`
-}```
+}
+```
 
-* Response Body will be an array of events: ```[
+* Response Body will be an array of events: 
+```
+[
   {
   "_id" : ObjectId("111111111111111111111111"),
   "location" : {
@@ -145,23 +159,30 @@ _______________________________|_________________________________
     }
   ]
 }, ...
-]```
+]
+```
 
 
 ###### GET a single event
 
 * Requires valid JSON Webtoken
 
-* Type: `GET`
+* Request Type: `GET`
 
 * URL: `https://itsadateserver.herokuapp.com/api/events/eventID`
+
 * Example: `https://itsadateserver.herokuapp.com/api/events/1a2b3c4e5f6a718a93201234`
 
-* Required Headers: ```{
+* Required Request Headers: 
+```
+{
   Authorization: `Bearer JSONWebToken`
-}```
+}
+```
 
-* Response Body will be a single event: ```{
+* Response Body will be a single event: 
+```
+{
   "_id" : ObjectId("111111111111111111111111"),
   "location" : {
     "latitude" : 39.7392,
@@ -231,7 +252,8 @@ _______________________________|_________________________________
       "end" : ""
     }
   ]
-}```
+}
+```
 
 
 
